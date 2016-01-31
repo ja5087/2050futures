@@ -1,5 +1,6 @@
 ﻿<html>
 <head>
+<link type="text/css" rel="stylesheet" href="http://annotorious.github.com/latest/annotorious.css" />
 <style>
 div img {
 object-fit: contain;
@@ -8,8 +9,22 @@ height: 100%;
 }
 
 body {margin :0;height:100%;}
+
+.annotorious-popup {
+ font-family: 'Open Sans';
+ width:400px;
+}
 </style>
-<link type="text/css" rel="stylesheet" href="js/annotorious/css/annotorious.css" />
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script>
+$.noConflict();
+</script>
+<script type='text/javascript' src='http://annotorious.github.com/latest/annotorious.min.js'/>
+<script type='text/javascript'>
+  function init() {
+    anno.makeAnnotatable(document.getElementById('mainImage'));
+  }
+</script>
 <script>
 var implementnew = [
   {
@@ -494,15 +509,21 @@ var implementnew = [
   anno.reset();
   loadPopupstream();
   }
+  
+ function initializePage() {
+ anno.addHandler('onPopupShown',function() {
+    jQuery('body').animate({scrollTop: document.body.scrollHeight});
+    });
+ anno.addHandler('beforePopupHide',function() {
+    jQuery('body').animate({scrollTop: "0px"});
+    });
+ loadPopupstream();
+ }
+  
 </script>
-<script type='text/javascript' src='js/annotorious/annotorious.min.js'/>
-<script type='text/javascript'>
-  function init() {
-    anno.makeAnnotatable(document.getElementById('mainImage'));
-  }
-</script>
+
 </head>
-<body bgcolor=white onload="loadPopupstream();">
+<body bgcolor=white onload="initializePage();">
 <div>
 <img src="timeline.svg" class="annotatable" id='mainImage'/>
 </div>
