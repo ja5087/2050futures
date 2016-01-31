@@ -14,6 +14,7 @@ body {margin :0;height:100%;}
  font-family: 'Open Sans';
  width:400px;
 }
+
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
 <script>
@@ -502,6 +503,7 @@ var implementnew = [
   {
     anno.addAnnotation(implementnew[i]);
   }
+  anno.showAnnotations();
   };
  window.onresize = resetAnnotations;
  
@@ -512,10 +514,12 @@ var implementnew = [
   
  function initializePage() {
  anno.addHandler('onPopupShown',function() {
-    jQuery('body').animate({scrollTop: document.body.scrollHeight});
+    anno.hideAnnotations();
+    jQuery('body').animate({scrollTop: document.body.scrollHeight}, 300, anno.showAnnotations());
     });
  anno.addHandler('beforePopupHide',function() {
-    jQuery('body').animate({scrollTop: "0px"});
+    anno.hideAnnotations();
+    jQuery('body').animate({scrollTop: "0px"}, 300, anno.showAnnotations());
     });
  loadPopupstream();
  }
