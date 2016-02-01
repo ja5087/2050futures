@@ -17,6 +17,8 @@ body {margin :0;height:100%;}
 
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script src="https://cdn.rawgit.com/jquery/jquery-mousewheel/master/jquery.mousewheel.min.js"></script>
+
 <script>
 $.noConflict();
 </script>
@@ -521,8 +523,16 @@ var implementnew = [
     anno.hideAnnotations();
     jQuery('body').animate({scrollTop: "0px"}, 300, anno.showAnnotations());
     });
+ 
  loadPopupstream();
  }
+
+ jQuery(function() {
+      jQuery("html, body").mousewheel(function(event, delta) {
+        this.scrollLeft -= (delta);
+        event.preventDefault();
+      });
+    });
   
 </script>
 
