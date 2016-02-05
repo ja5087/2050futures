@@ -1,23 +1,71 @@
 ﻿<html>
+<title>2050futures</title>
 <head>
+<link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto">
 <link type="text/css" rel="stylesheet" href="http://annotorious.github.com/latest/annotorious.css" />
+<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css">
 <style>
 div img {
 object-fit: contain;
 vertical-align: middle;
 height: 100%;
+opacity:0;
 }
 
-body {margin :0;height:100%;}
+body {margin :0;height:100%; background-color: #ecf0f1;overflow-y: hidden;}
+
+.ui-widget-header {
+    background: #ffffff;
+    border: 0;
+    font-weight: normal;
+    font-family: 'Roboto Slab', sans-serif;
+}
+
+ui-dialog-buttonpane {
+    background: #ffffff;
+}
 
 .annotorious-popup {
- font-family: 'Open Sans';
+ font-family: 'Roboto';
  width:400px;
+
+}
+
+.floatingMenu {
+    position:fixed;
+    height: auto;
+    width: auto;
+    bottom:10px;
+    right:10px;
+    padding-top: 3px;
+    padding-right: 5px;
+    padding-bottom: 3px;
+    padding-left: 5px;
+    border: 4px solid #2980b9;
+    background-color: #4aa3df;
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    -webkit-box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.75);
+    box-shadow: 5px 5px 10px 0px rgba(0,0,0,0.75);
+    opacity:0;
+    z-index: 1;
+}
+
+.floatingMenu:hover {
+cursor: pointer;
+}
+
+#referencesDialog {
+font-size: 10px;
+font-family: 'Roboto', sans-serif;
 }
 
 </style>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
 <script src="https://cdn.rawgit.com/jquery/jquery-mousewheel/master/jquery.mousewheel.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
 
 <script>
 $.noConflict();
@@ -29,10 +77,30 @@ $.noConflict();
   }
 </script>
 <script>
+jQuery('document').ready(function(){
+    initializePage();
+    jQuery("#referencesDialog").dialog({autoOpen: false},{width:jQuery(window).width()*0.75},{height:jQuery(window).height()*0.75});
+    jQuery("#referencesButton").click(function(){jQuery("#referencesDialog").dialog("open")});
+    });
+    jQuery(window).resize(function() { 
+        jQuery("#referencesDialog").dialog("option", "position", { my: "center", at: "center", of: window });
+        jQuery("#referencesDialog").dialog("option", "width", jQuery(window).width()*0.75);
+        jQuery("#referencesDialog").dialog("option", "height", jQuery(window).height()*0.75);
+    });
+    jQuery(function() {
+   
+    jQuery("body").mousewheel(function(event, delta) {
+      if(!jQuery("#referencesDialog").dialog("isOpen"))
+      {
+      this.scrollLeft -= (delta * 30);
+      }
+   });
+
+});
 var implementnew = [
   {
     "src": "timeline.svg",
-    "text": "• Over 2010-2011, prices of important commodities rose significantly. \n\n• The World Bank's FPI (Food Price Index) rose 15% between October 2010 and January 2011. It nearly reached the same level as it was at during the 2007-2008 Food Price Crisis.\n\n• World Bank President warns that the world is \"one shock away from a global crisis\"\n\n• The situation began with poor weather conditions (excessive rains, floods, etc.) in farming countries such as Australia and China among others for important crops such as wheat. After that, export restrictions and limited supply drove demand for alternative cereals up thus increasing the price of all commodities.\n\n• The World Bank estimates that 44 million people fell into poverty (less than $1.25/day) as a result of this price increase. Poverty is directly linked with hunger and developmental deficiencies especially in children.\n\n• Additionally, malnutrition became more prevalent, particularly affecting vulnerable segments of the population such as infants and pregnant women.\nIn all, this event underscores the poor's vulnerability to climate change and its unequal access to food.",
+    "text": "• Over 2010-2011, prices of important commodities rose significantly. \n\n• The World Bank's FPI (Food Price Index) rose 15% between October 2010 and January 2011. It nearly reached the same level as it was at during the 2007-2008 Food Price Crisis.\n\n• World Bank President warns that the world is \"one shock away from a global crisis\"\n\n• The situation began with poor weather conditions (excessive rains, floods, etc.) in farming countries such as Australia and China among others for important crops such as wheat. After that, export restrictions and limited supply drove demand for alternative cereals up thus increasing the price of all commodities.\n\n• The World Bank estimates that 44 million people fell into poverty (less than $1.25/day) as a result of this price increase. Poverty is directly linked with hunger and developmental deficiencies especially in children.\n\n• Additionally, malnutrition became more prevalent, particularly affecting vulnerable segments of the population such as infants and pregnant women.\nIn all, this event underscores the poor's vulnerability to climate change and its unequal access to food.\n\n• Source No.(s): 4, 29",
     "shapes": [
       {
         "type": "rect",
@@ -45,11 +113,12 @@ var implementnew = [
         "style": {}
       }
     ],
-    "context": "index.html" 
+    "context": "index.html",
+    "editable": false
   },
   {
     "src": "timeline.svg",
-    "text": "• A study by the Natural Resources Defense Council titled \"Wasted: How America Is Losing Up to 40 Percent of Its Food from Farm to Fork to Landfill\" provides insight into the incredible inefficiency of the U.S. Food System.\n\n• Several causes for this food waste were discussed:\n\t○ Harvest Phase\n\t\t§ A certain percentage of crops are lost every year to pests, disease, and poor weather conditions.\n\t\t§ Some commodities are in oversupply, meaning that farmers do not expend the labor to harvest them in order to maintain profitability.\n\t○ Post-Harvest to Packing\n\t\t§ Trimming processes such as deboning, peeling cause major losses. For example, a plant engineer states, “The rule of thumb in processing potatoes is that 50 percent of the potato goes out the back door as finished product.”\n\t\t§ Food is usually discarded past the sell-by date \n\t○ Retail\n\t\t§ A 2008 estimate states that \t\t                      10% of total food in the US is lost at the retail stage.\n\t\t§ Customers cull food based on looks, and only select the ones that look \"perfect\"\n\t\t§ Waste is viewed as a sign of customer satisfaction and quality control. If lots of food is thrown away, then poor-quality items are removed and there is sufficient supply.\n\t○ Households\n\t\t§ Poor storage leading to spoilage of food\n\t\t§ Confusion over the term \"best by\" and \"use by\", both of which refer to peak performance, not necessarily food safety. The UK's Waste &amp; Resources Action Programme estimates that 20% of household food is thrown away in this manner.\n\n• Several comparisons are made, and show how the developed world is wasting food at the consumer level at an order of magnitude higher than the developing world.\n\n• Overall, these inefficiencies generate billions of dollars of loss annually for the United States, and show how hunger is a logistics problem, not a production problem.",
+    "text": "• A study by the Natural Resources Defense Council titled \"Wasted: How America Is Losing Up to 40 Percent of Its Food from Farm to Fork to Landfill\" provides insight into the incredible inefficiency of the U.S. Food System.\n\n• Several causes for this food waste were discussed:\n\t○ Harvest Phase\n\t\t§ A certain percentage of crops are lost every year to pests, disease, and poor weather conditions.\n\t\t§ Some commodities are in oversupply, meaning that farmers do not expend the labor to harvest them in order to maintain profitability.\n\t○ Post-Harvest to Packing\n\t\t§ Trimming processes such as deboning, peeling cause major losses. For example, a plant engineer states, “The rule of thumb in processing potatoes is that 50 percent of the potato goes out the back door as finished product.”\n\t\t§ Food is usually discarded past the sell-by date \n\t○ Retail\n\t\t§ A 2008 estimate states that 10% of total food in the US is lost at the retail stage.\n\t\t§ Customers cull food based on looks, and only select the ones that look \"perfect\"\n\t\t§ Waste is viewed as a sign of customer satisfaction and quality control. If lots of food is thrown away, then poor-quality items are removed and there is sufficient supply.\n\t○ Households\n\t\t§ Poor storage leading to spoilage of food\n\t\t§ Confusion over the term \"best by\" and \"use by\", both of which refer to peak performance, not necessarily food safety. The UK's Waste &amp; Resources Action Programme estimates that 20% of household food is thrown away in this manner.\n\n• Several comparisons are made, and show how the developed world is wasting food at the consumer level at an order of magnitude higher than the developing world.\n\n• Overall, these inefficiencies generate billions of dollars of loss annually for the United States, and show how hunger is a logistics problem, not a production problem.\n\n• Source No.(s): 14\n",
     "shapes": [
       {
         "type": "rect",
@@ -62,11 +131,12 @@ var implementnew = [
         "style": {}
       }
     ],
-    "context": "index.html" 
+    "context": "index.html",
+    "editable": false
   },
   {
     "src": "timeline.svg",
-    "text": "• With the advent of commercially available genetically modified crops, there is a possibility of feeding the whole world in the future.\t\n\n• However, the debate continues, and it only becomes more heated as the use of GM products begin to grow.\n\n• Positions of nations on the legality of GMO products vary significantly. For example, many have banned GM products, and some only legalize specific strains of GM crops.\n\n• Proponents of GM highlight its advantageous properties such as pest resistance and macronutrient supplementation. For example, \"golden rice\" is a strain of rice that contains Vitamin A, which does not occur naturally in rice.\n\n• Opponents, following the \"precautionary principle\", are skeptical of purported claims that GM crops will not taint nature's genetic pool or cause adverse health effects in humans.  \n\n• Current research indicates that there are no health concerns from GM crops.\n\n• Some advocate center and support both increasing GM crop testing and its usage. \n\n• In summary, an important debate is raised about a potential way to provide the world's population using technology. This could have potential ramification for technology's ability to aid future food production.",
+    "text": "• With the advent of commercially available genetically modified crops, there is a possibility of feeding the whole world in the future.\t\n\n• However, the debate continues, and it only becomes more heated as the use of GM products begin to grow.\n\n• Positions of nations on the legality of GMO products vary significantly. For example, many have banned GM products, and some only legalize specific strains of GM crops.\n\n• Proponents of GM highlight its advantageous properties such as pest resistance and macronutrient supplementation. For example, \"golden rice\" is a strain of rice that contains Vitamin A, which does not occur naturally in rice.\n\n• Opponents, following the \"precautionary principle\", are skeptical of purported claims that GM crops will not taint nature's genetic pool or cause adverse health effects in humans.  \n\n• Current research indicates that there are no health concerns from GM crops.\n\n• Some advocate center and support both increasing GM crop testing and its usage. \n\n• In summary, an important debate is raised about a potential way to provide the world's population using technology. This could have potential ramification for technology's ability to aid future food production.\n\n• Source No.(s): 12\n",
     "shapes": [
       {
         "type": "rect",
@@ -79,11 +149,12 @@ var implementnew = [
         "style": {}
       }
     ],
-    "context": "index.html" 
+    "context": "index.html",
+    "editable": false
   },
   {
     "src": "timeline.svg",
-    "text": "• Alarming Obesity rates, especially in the United States, Mexico, and Australia, call for immediately action.\n\n• Shocking statistics paint part of the picture:\n\t○ 75-80% of middle aged men are overweight in Australia.\n\t○ Almost one of three children and teenagers aged 2-19 are overweight or obese in the United States.\n\n• Rob Moodie, an Australian professor, blames fast food culture for the increase in obesity. He states that targeted advertising are giving parents and children the wrong message. Children look up to their stars, and see them eating fast food. As a result, they do the same.\n\n• In general, the increase in consumption of fats and sugars have also caused a corresponding increase in the prevalence of obesity.\n\n• Obesity is linked to further non-communicable chronic diseases such as diabetes and heart disease and has potential implications for the future of this generation.\n\n• Overall, this shows that the food problem spans the entire spectrum ranging from malnutrition and chronic hunger in low-income countries to obesity and food waste in high-income countries. It means that a sustainable future must have not only sufficient quantities of food, but also sufficient quality of food.",
+    "text": "• Alarming Obesity rates, especially in the United States, Mexico, and Australia, call for immediately action.\n\n• Shocking statistics (1) paint part of the picture:\n\t○ 75-80% of middle aged men are overweight in Australia.\n\t○ Almost one of three children and teenagers aged 2-19 are overweight or obese in the United States.\n\n• Rob Moodie, an Australian professor, blames fast food culture for the increase in obesity. He states that targeted advertising are giving parents and children the wrong message. Children look up to their stars, and see them eating fast food. As a result, they do the same (1).\n\n• In general, the increase in consumption of fats and sugars have also caused a corresponding increase in the prevalence of obesity.\n\n• Obesity is linked to further non-communicable chronic diseases such as diabetes and heart disease and has potential implications for the future of this generation.\n\n• Overall, this shows that the food problem spans the entire spectrum ranging from malnutrition and chronic hunger in low-income countries to obesity and food waste in high-income countries. It means that a sustainable future must have not only sufficient quantities of food, but also sufficient quality of food.\n\n• Sources: 1, 2, 24",
     "shapes": [
       {
         "type": "rect",
@@ -96,198 +167,12 @@ var implementnew = [
         "style": {}
       }
     ],
-    "context": "index.html" 
+    "context": "index.html",
+    "editable": false
   },
   {
     "src": "timeline.svg",
-    "text": "4. By combining current statistics and projections, it can be reasonably extrapolated that without major change, the Sub-Saharan region will be subject to much more hunger than currently.\n\n5. Furthermore, food availability has been historically linked to riots and protests, making it reasonable to assume that in the event widespread famine occurs, there will definitely be civil unrest.",
-    "shapes": [
-      {
-        "type": "rect",
-        "geometry": {
-          "x": 0.2410394265232975,
-          "y": 0.77502691065662,
-          "width": 0.02031063321385902,
-          "height": 0.06566200215285253
-        },
-        "style": {}
-      }
-    ],
-    "context": "index.html" 
-  },
-  {
-    "src": "timeline.svg",
-    "text": "1. In a bid to feed their growing populations, many nations, including China and India, have resorted to intensive monocropping techniques, which deplete nutrients in the soil in an unsustainable manner.\n\n2. These techniques include the use of heavy machinery causing soil compaction, excessive use of fertilizers leading to eutrophication in nearby water sources, and the practice of growing one crop repeatedly (mono-cropping) which rapidly consumes nutrients in the soil causing desertification. Furthermore, mono-cropping increases the spread of plant disease, as every crop is of the same strain. \n\n3. The UN estimates that nearly 20 million acres of arable land is already lost every year due to unsustainable agriculture.  \n\n4. If the current status quo is maintained, farmers currently blessed by record harvests in developing nations could face significant trouble in the future as their land begins to dry up.\nAccordingly, a spike in food prices could be expected as these nations produce the essential cereals that the world relies on for calories.",
-    "shapes": [
-      {
-        "type": "rect",
-        "geometry": {
-          "x": 0.29301075268817206,
-          "y": 0.5511302475780409,
-          "width": 0.026284348864994027,
-          "height": 0.10010764262648009
-        },
-        "style": {}
-      }
-    ],
-    "context": "index.html" 
-  },
-  {
-    "src": "timeline.svg",
-    "text": "1. Currently, over half of the world's 37 largest aquifers are being stressed beyond capacity. \n\n2. Droughts are already occurring in previously thought secure regions. California, for example, is going through its worst drought in a millennium.\n\n3. As surface sources of water (rivers, lakes) begin to dry up, people will eventually look to underground sources, which replenish at a much slower rate. \n\n4. Agriculture has been, and will continue to be, the largest use of water. When surface sources run out, farmers look for alternatives to keep feeding the growing demand. Some wheat farmers in China have resorted to pumping water from 300 meters below ground. \n\n5. If we continue to deplete our aquifers at the current rate, by 2050, our groundwater sources could be severely depleted and become unusable, causing water shortages even in developed countries. This could have adverse effects on both crop production and the livelihood of people. In the worst case, drought-related deaths may begin to happen.\n",
-    "shapes": [
-      {
-        "type": "rect",
-        "geometry": {
-          "x": 0.37216248506571087,
-          "y": 0.7771797631862217,
-          "width": 0.023297491039426525,
-          "height": 0.07319698600645856
-        },
-        "style": {}
-      }
-    ],
-    "context": "index.html" 
-  },
-  {
-    "src": "timeline.svg",
-    "text": "1. Consumption habits of customers have led to overfishing, causing endangered species such as Atlantic Cod, Bluefin Tuna, Sturgeon, and Atlantic Salmon to become nearly extinct.\n\n2. Addititionally, many fishers use indiscriminate methods for their hauls, causing all types of fish to be caught regardless of type. This wastes a large number each year, with some estimating that five untargeted fish are caught for every one targeted. \n\n3. The FAO estimates that 3/4 of fisheries are either nearly fully exploited or fully exploited. This shows how we are reaching the limit of earth's ability to produce fish.\n\n4. Assuming the current trend continues, the world's supply of fish will be severely strained in the future, and cause a major loss of marine life. The most affected regions would become essentially devoid of fish as there is no opportunity for them to reproduce.",
-    "shapes": [
-      {
-        "type": "rect",
-        "geometry": {
-          "x": 0.4244324970131422,
-          "y": 0.5651237890204521,
-          "width": 0.027180406212664276,
-          "height": 0.07965554359526372
-        },
-        "style": {}
-      }
-    ],
-    "context": "index.html" 
-  },
-  {
-    "src": "timeline.svg",
-    "text": "1. Runoff from agribusiness causes hypoxia (lack of oxygen) in water basins, causing fish to be unable to reproduce in the water. These zones are Dead Zones.\n\n2. It is estimated that even right now, there are over 500 dead zones in the oceans as a result of this practice.\n\n3. For example, a famous dead zone is located in the Gulf of Mexico. Agriculture along the Mississippi causes nitrogen to flow into the Gulf, causing eutrophication and thus low oxygen conditions. \n\n4. In the future, if we continue to use fertilizers in agriculture at the current rate, more dead zones will inevitably develop all over the world causing a loss of marine life and polluting our drinking water.",
-    "shapes": [
-      {
-        "type": "rect",
-        "geometry": {
-          "x": 0.516726403823178,
-          "y": 0.767491926803014,
-          "width": 0.022102747909199524,
-          "height": 0.08396124865446716
-        },
-        "style": {}
-      }
-    ],
-    "context": "index.html" 
-  },
-  {
-    "src": "timeline.svg",
-    "text": "1. GMO Technology promises to increase crop yield significantly by equipping plants with the genetics to fight off adverse factors affecting yield such as inclement weather and pests.\n2. With more development in this area, it could be possible for important staples to be completely resistant to pest and diseases without the use of chemicals, leading to more sustainable agriculture overall.\n3. Currently, there is an increase in the use of GMOs, but people still exercise caution, and there are still many legal barriers to overcome.",
-    "shapes": [
-      {
-        "type": "rect",
-        "geometry": {
-          "x": 0.5713859020310633,
-          "y": 0.5575888051668461,
-          "width": 0.02180406212664277,
-          "height": 0.09472551130247578
-        },
-        "style": {}
-      }
-    ],
-    "context": "index.html" 
-  },
-  {
-    "src": "timeline.svg",
-    "text": "1. Even now, the Amazon rainforest's area is declining at an alarming rate, mainly due to deforestation from agribusiness and illegal logging. Experts estimate that over a hundred plant, animal and insect species are lost every day due to deforestation.\n\n2. Although the rainforest is important to the carbon cycle by sequestering CO2 and producing oxygen, we are cutting it down to create more land for agriculture, which generates more pollution.\n\n3. The Amazon forest is home to millions of species, and its death would inevitably cause all of these animals and plants to go extinct, leading to a loss of biodiversity.\n\n4. Projections by the Brazil National Institute of Research stated that the size of the Amazon rainforest could be halved by 2050.\n\n5. At this current rate, the Amazon Rainforest really will be unrecoverable, as a certain 'tipping point' is reached after which deserts start to claim the forest. Climate change will be exacerbated, causing many more deaths in oceans and other forests as a result of increasing temperatures.",
-    "shapes": [
-      {
-        "type": "rect",
-        "geometry": {
-          "x": 0.6612903225806451,
-          "y": 0.767491926803014,
-          "width": 0.01762246117084827,
-          "height": 0.08503767491926803
-        },
-        "style": {}
-      }
-    ],
-    "context": "index.html" 
-  },
-  {
-    "src": "timeline.svg",
-    "text": "1. Social unrest and food prices have been historically linked with each other.\n\n2. Other events described here (drought, climate change) could possibly lead to significant price increases, especially in many of the cereals that the world relies on for food. \n\n3. Past history have shown that there is an FPI (Food Price Index) threshold after which the chance of significant social unrest can happen. For example, the 2007-08 and 2010-2011 food price crises have led to riots in Syria, Yemen, Egypt among others. \n\n4. Unequal access to food has always been a problem, but for the poorest people in the world, it will become bigger as prices increase.\n\n5. In the future, low-income countries will bear a significant burden as their people cannot afford necessary food to avoid malnutrition and stunted human development. Without development, these countries will remain low-income forever.",
-    "shapes": [
-      {
-        "type": "rect",
-        "geometry": {
-          "x": 0.7168458781362007,
-          "y": 0.5672766415500539,
-          "width": 0.01881720430107527,
-          "height": 0.08396124865446716
-        },
-        "style": {}
-      }
-    ],
-    "context": "index.html" 
-  },
-  {
-    "src": "timeline.svg",
-    "text": "1. Developed countries are expected to have lowering birthrates, but not enough to counteract the explosive growth from developing countries.\n\n2. Growth is predicted to be highest in the Sub-Saharan region, where the average birth count per mother is already 5.2.\n\n3. This means that by 2050, there will be 2.3 billion more mouths to feed. Food security will become an even larger issue in the coming years.\n",
-    "shapes": [
-      {
-        "type": "rect",
-        "geometry": {
-          "x": 0.7816606929510155,
-          "y": 0.7578040904198062,
-          "width": 0.044504181600955796,
-          "height": 0.09149623250807319
-        },
-        "style": {}
-      }
-    ],
-    "context": "index.html" 
-  },
-  {
-    "src": "timeline.svg",
-    "text": "1. There has been a general shift to energy dense foods such as fats and sugar recently, led by the \"fast food revolution,\" in which people eat more of the calorie-dense foods found in McDonalds and KFCs. Additionally, an increase in processed food consumption has led to increases in fat intake. \n\n2. Without proper understanding of nutritional needs, even those in developed countries where food is plenty can suffer from deficiencies in Vitamins and dietary fibre.\n\n3. A nutritional survey conducted in the USA reveals that the average consumption of dark greens and whole grains are each at less than 10 percent of recommended levels. Several chronic diseases such as diabetes and heart diseases are linked with unhealthy fat consumption.\n\n4. Developing countries are also transitioning towards cheap vegetable oils for calorie intake, creating a problem where a population is composed simultaneously of both obese and hungry people. \nIn the future, if no action is taken, the world's nutritional intake could follow a downwards trend and make malnutrition widespread even when food is available.",
-    "shapes": [
-      {
-        "type": "rect",
-        "geometry": {
-          "x": 0.8372162485065711,
-          "y": 0.5748116254036598,
-          "width": 0.021505376344086023,
-          "height": 0.07427341227125941
-        },
-        "style": {}
-      }
-    ],
-    "context": "index.html" 
-  },
-  {
-    "src": "timeline.svg",
-    "text": "1. At this current trend, the Population Reference Bereau in the US estimates that Africa's population will double by 2050, with most of the growth concentrated in the Sub-Saharan Region. \n\n2. As of 2015, the UN FAO estimates that approximately 240 million of people, or a quarter, in the Sub-Saharan region are undernourished. Additionally, 45% of children under 5 die of malnutrition. \n\n3. The poor economic and political conditions in the region also contribute to its volatility. Although significant economic growth is expected in the coming years, a lack of commensurate political improvement would still mean that the majority of the population suffers from hunger.\n\nMouseover the Hamburger for more.",
-    "shapes": [
-      {
-        "type": "rect",
-        "geometry": {
-          "x": 0.22072879330943848,
-          "y": 0.7685683530678149,
-          "width": 0.02001194743130227,
-          "height": 0.077502691065662
-        },
-        "style": {}
-      }
-    ],
-    "context": "index.html" 
-  },
-  {
-    "src": "timeline.svg",
-    "text": "• The State of California is currently suffering from a man-made drought. While residents have been told to cut consumption by over a third, companies such as Nestle and Walmart, in addition to agricultural operations, continue using large quantities of water.\n\n• Surface sources of water, such as the American River, have lost significant amounts of water due to evaporation and low flow from their respective sources.\n\n• A 2014 study found that this was the state's worst drought in over a millennium\n\n• Climate change and human uses of water, including agribusiness and a burgeoning population, have been cited as the main reasons for this drought.\n\n• The drought is causing severe impacts on California's farms, and over 560,000 acres of cropland (approx. 7% of total farmland) were fallowed.\n\n• However, companies such as Nestle and Walmart still draw significant amounts of water. Agribusiness and fracking industries, together accounting for over 90% of the state's water use, still remain unaffected by legislations aimed at reducing water usage.\n\n• There's a clear disparity between a corporation's effect on the environment and their responsibility for it, as shown by how individual residents are punished if they \"waste water\" when the amount they use is miniscule compared to agribusiness and bottling companies.\nIn all, California serves as an important case study on the influence of corporations in policy and how the issues of water and food are political in nature.",
+    "text": "• The State of California is currently suffering from a man-made drought. While residents have been told to cut consumption by over a third, companies such as Nestle and Walmart, in addition to agricultural operations, continue using large quantities of water (15).\n\n• Surface sources of water, such as the American River, have lost significant amounts of water due to evaporation and low flow from their respective sources (22).\n\n• A 2014 study found that this was the state's worst drought in over a millennium (5).\n\n• Climate change and human uses of water, including agribusiness and a burgeoning population, have been cited as the main reasons for this drought.\n\n• The drought is causing severe impacts on California's farms, and over 560,000 acres of cropland (approx. 7% of total farmland) were fallowed (5).\n\n• However, companies such as Nestle and Walmart still draw significant amounts of water. Agribusiness and fracking industries, together accounting for over 90% of the state's water use, still remain unaffected by legislation aimed at reducing water usage (15).\n\n• There's a clear disparity between a corporation's effect on the environment and their responsibility for it, as shown by how individual residents are punished if they \"waste water\" when the amount they use is minuscule compared to agribusiness and bottling companies.\nIn all, California serves as an important case study on the influence of corporations in policy and how the issues of water and food are political in nature.\n\n• Source No.(s): 5, 15, 22, 28\n",
     "shapes": [
       {
         "type": "rect",
@@ -300,7 +185,8 @@ var implementnew = [
         "style": {}
       }
     ],
-    "context": "index.html" 
+    "context": "index.html",
+    "editable": false
   },
   {
     "src": "timeline.svg",
@@ -317,7 +203,8 @@ var implementnew = [
         "style": {}
       }
     ],
-    "context": "index.html" 
+    "context": "index.html",
+    "editable": false
   },
   {
     "src": "timeline.svg",
@@ -334,7 +221,8 @@ var implementnew = [
         "style": {}
       }
     ],
-    "context": "index.html" 
+    "context": "index.html",
+    "editable": false
   },
   {
     "src": "timeline.svg",
@@ -351,7 +239,8 @@ var implementnew = [
         "style": {}
       }
     ],
-    "context": "index.html" 
+    "context": "index.html",
+    "editable": false
   },
   {
     "src": "timeline.svg",
@@ -368,7 +257,8 @@ var implementnew = [
         "style": {}
       }
     ],
-    "context": "index.html" 
+    "context": "index.html",
+    "editable": false
   },
   {
     "src": "timeline.svg",
@@ -385,7 +275,8 @@ var implementnew = [
         "style": {}
       }
     ],
-    "context": "index.html" 
+    "context": "index.html",
+    "editable": false
   },
   {
     "src": "timeline.svg",
@@ -402,7 +293,8 @@ var implementnew = [
         "style": {}
       }
     ],
-    "context": "index.html" 
+    "context": "index.html",
+    "editable": false
   },
   {
     "src": "timeline.svg",
@@ -419,7 +311,8 @@ var implementnew = [
         "style": {}
       }
     ],
-    "context": "index.html" 
+    "context": "index.html",
+    "editable": false
   },
   {
     "src": "timeline.svg",
@@ -436,7 +329,8 @@ var implementnew = [
         "style": {}
       }
     ],
-    "context": "index.html" 
+    "context": "index.html",
+    "editable": false
   },
   {
     "src": "timeline.svg",
@@ -453,7 +347,8 @@ var implementnew = [
         "style": {}
       }
     ],
-    "context": "index.html" 
+    "context": "index.html",
+    "editable": false
   },
   {
     "src": "timeline.svg",
@@ -470,58 +365,8 @@ var implementnew = [
         "style": {}
       }
     ],
-    "context": "index.html" 
-  },
-  {
-    "src": "timeline.svg",
-    "text": "• One hamburger uses 660 gallons of water\n\t\n• One pound of beef uses 2500 gallons of water\n\t\n• Vote with your wallet. By simply abstaining from meat products, you're already conserving hundreds of gallons of water.\n\t\n• Since agribusiness is also linked to deforestation and aquifer depletion, you'll also be helping to ensure nature's survival, which is crucial if we are to have food in the future.\n",
-    "shapes": [
-      {
-        "type": "rect",
-        "geometry": {
-          "x": 0.5575307045895281,
-          "y": 0.4405594405594406,
-          "width": 0.004201680672268907,
-          "height": 0.023310023310023312
-        },
-        "style": {}
-      }
-    ],
-    "context": "index.html"
-  },
-  {
-    "src": "timeline.svg",
-    "text": "• Shockingly, in the US, 10% of all food is wasted at the consumption stage. \n\t\n• High-income societies tend to be guilty of waste, as food is cheap, plentiful, and completely disconnected from their lives.\n\t\n• Or is it? Our food comes from farmers, who very often are starving themselves. Food that we throw away goes into landfills, which are filling up at amazing rates. \n\t\n• The world isn't running out of food anytime soon, but your actions can help prevent waste leading to more food being available for other people.\n\t\n• You can help prevent this by planning out your food purchases, saving leftovers, controlling portion sizes to avoid waste. Remember these three words: Think, Eat, Save.\n",
-    "shapes": [
-      {
-        "type": "rect",
-        "geometry": {
-          "x": 0.521978021978022,
-          "y": 0.4603729603729604,
-          "width": 0.004201680672268907,
-          "height": 0.022144522144522144
-        },
-        "style": {}
-      }
-    ],
-    "context": "index.html"
-  },
-  {
-    "src": "timeline.svg",
-    "text": "• Although food has become more plentiful, we're eating the worst of it. Vegetable oils and sugars, mainly present in fast food and processed foods, have begun to take over our diet.\n\t\n• On the other hand, consumption of fresh greens and whole grains is lowering. Even people who can afford sufficient quantities of food can face malnutrition if they don't eat properly.\n\t\n• MyPlate (choosemyplate.gov) can help you make good nutritional choices. Healthy people live longer, and can contribute more to a productive society.\n\t\n",
-    "shapes": [
-      {
-        "type": "rect",
-        "geometry": {
-          "x": 0.5126050420168067,
-          "y": 0.4825174825174825,
-          "width": 0.003878474466709761,
-          "height": 0.019813519813519812
-        },
-        "style": {}
-      }
-    ],
-    "context": "index.html"
+    "context": "index.html",
+    "editable": false
   },
   {
     "src": "timeline.svg",
@@ -538,11 +383,264 @@ var implementnew = [
         "style": {}
       }
     ],
-    "context": "index.html"
+    "context": "index.html",
+    "editable": false
   },
   {
     "src": "timeline.svg",
-    "text": "• While doing business in agriculture, you will inevitably use large quantities of resources. This is unavoidable, and it's naïve to think otherwise.\n\n• However, by using best sustainability practices, you will ensure that you're getting the most return for capital, and help ensure the survival of your business too. No water, no crops. No crops, no money.\n\t\n• Several studies have shown that crop rotation is one of the most effective things you can do. By changing the crop you grow each season, pests, which often target specific crops, will come in fewer numbers. You'll also be replenishing nutrients in the soil without having to use a large number of chemical fertilizers.\n\t\n• Other methods also enrich the soil and allow crops to grow better. They can be found in the Further Reading/Works Cited section on the bottom right corner.\n",
+    "text": "4. By combining current statistics and projections, it can be reasonably extrapolated that without major change, the Sub-Saharan region will be subject to much more hunger than currently.\n\n5. Furthermore, food availability has been historically linked to riots and protests, making it reasonable to assume that in the event widespread famine occurs, there will definitely be civil unrest (17).\n\n• Source No.(s): 11, 17, 19\n",
+    "shapes": [
+      {
+        "type": "rect",
+        "geometry": {
+          "x": 0.2410394265232975,
+          "y": 0.77502691065662,
+          "width": 0.02031063321385902,
+          "height": 0.06566200215285253
+        },
+        "style": {}
+      }
+    ],
+    "context": "index.html",
+    "editable": false
+  },
+  {
+    "src": "timeline.svg",
+    "text": "1. At this current trend, the Population Reference Bereau in the US estimates that Africa's population will double by 2050, with most of the growth concentrated in the Sub-Saharan Region (3). \n\n2. As of 2015, the UN FAO estimates that approximately 240 million of people, or a quarter, in the Sub-Saharan region are undernourished. Additionally, 45% of children under 5 die of malnutrition (11). \n\n3. The poor economic and political conditions in the region also contribute to its volatility. Although significant economic growth is expected in the coming years, a lack of corresponding political improvement would still mean that the majority of the population will suffer from hunger.\n\nMouseover the Hamburger for more.\n\n• Source No.(s): 3, 11, 17, 19\n",
+    "shapes": [
+      {
+        "type": "rect",
+        "geometry": {
+          "x": 0.22072879330943848,
+          "y": 0.7685683530678149,
+          "width": 0.02001194743130227,
+          "height": 0.077502691065662
+        },
+        "style": {}
+      }
+    ],
+    "context": "index.html",
+    "editable": false
+  },
+  {
+    "src": "timeline.svg",
+    "text": "1. In a bid to feed their growing populations, many nations, including China and India, have resorted to intensive monocropping techniques, which deplete nutrients in the soil in an unsustainable manner.\n\n2. These techniques include the use of heavy machinery causing soil compaction, excessive use of fertilizers leading to eutrophication in nearby water sources, and the practice of growing one crop repeatedly (mono-cropping) which rapidly consumes nutrients in the soil causing desertification. Furthermore, mono-cropping increases the spread of plant disease, as every crop is of the same strain (10). \n\n3. The UN estimates that nearly 20 million acres of arable land is already lost every year due to improper agriculture (25).  \n\n4. If the current status quo is maintained, farmers currently blessed by record harvests in developing nations could face significant trouble in the future as their land begins to dry up.\nAccordingly, a spike in food prices could be expected as these nations produce the essential cereals that the world relies on for calories.\n\n• Source No.(s): 10, 25",
+    "shapes": [
+      {
+        "type": "rect",
+        "geometry": {
+          "x": 0.29301075268817206,
+          "y": 0.5511302475780409,
+          "width": 0.026284348864994027,
+          "height": 0.10010764262648009
+        },
+        "style": {}
+      }
+    ],
+    "context": "index.html",
+    "editable": false
+  },
+  {
+    "src": "timeline.svg",
+    "text": "• Currently, over half of the world's 37 largest aquifers are being stressed beyond capacity (27). \n\n•  Droughts are already occurring in previously thought secure regions. California, for example, is going through its worst drought in a thousand years (5).\n\n•  As surface sources of water (rivers, lakes) begin to dry up, people will eventually look to underground sources, which replenish at a much slower rate. \n\n•  Agriculture has been, and will continue to be, the largest use of water. When surface sources run out, farmers look for alternatives to keep feeding the growing demand. Some wheat farmers in China have resorted to pumping water from 300 meters below ground (6). \n\n• If we continue to deplete our aquifers at the current rate, by 2050, our groundwater sources could be severely depleted and become unusable, causing water shortages even in developed countries. This could have adverse effects on both crop production and the livelihood of people. In the worst case, drought-related deaths may begin to happen.\n\n• Source No.(s): 6, 27\n",
+    "shapes": [
+      {
+        "type": "rect",
+        "geometry": {
+          "x": 0.37216248506571087,
+          "y": 0.7771797631862217,
+          "width": 0.023297491039426525,
+          "height": 0.07319698600645856
+        },
+        "style": {}
+      }
+    ],
+    "context": "index.html",
+    "editable": false
+  },
+  {
+    "src": "timeline.svg",
+    "text": "•  Runoff from agribusiness causes hypoxia (lack of oxygen) in water basins, causing fish to be unable to reproduce in the water. These zones are Dead Zones.\n\n•  It is estimated that even right now, there are over 500 dead zones in the oceans as a result of this practice.\n\n•  For example, a famous dead zone is located in the Gulf of Mexico. Agriculture along the Mississippi causes nitrogen to flow into the Gulf, causing eutrophication and thus low oxygen conditions. \n\n•  In the future, if we continue to use fertilizers in agriculture at the current rate, more dead zones will inevitably develop all over the world causing a loss of marine life and polluting our drinking water.\n\n• Source No.(s): 13\n",
+    "shapes": [
+      {
+        "type": "rect",
+        "geometry": {
+          "x": 0.516726403823178,
+          "y": 0.767491926803014,
+          "width": 0.022102747909199524,
+          "height": 0.08396124865446716
+        },
+        "style": {}
+      }
+    ],
+    "context": "index.html",
+    "editable": false
+  },
+  {
+    "src": "timeline.svg",
+    "text": "• GMO Technology promises to increase crop yield significantly by equipping plants with the genetics to fight off adverse factors affecting yield such as inclement weather and pests.\n\n• With more development in this area, it could be possible for important staples to be completely resistant to pest and diseases without the use of chemicals, leading to more sustainable agriculture overall.\n\n•  Currently, there is an increase in the use of GMOs, but people still exercise caution, and there are still many legal barriers to overcome.\n\n• Source No.(s): 30\n",
+    "shapes": [
+      {
+        "type": "rect",
+        "geometry": {
+          "x": 0.5713859020310633,
+          "y": 0.5575888051668461,
+          "width": 0.02180406212664277,
+          "height": 0.09472551130247578
+        },
+        "style": {}
+      }
+    ],
+    "context": "index.html",
+    "editable": false
+  },
+  {
+    "src": "timeline.svg",
+    "text": "• Even now, the Amazon rainforest's area is declining at an alarming rate, mainly due to deforestation from agribusiness and illegal logging. Experts estimate that over a hundred plant, animal and insect species are lost every day due to deforestation (7).\n\n• Although the rainforest is important to the carbon cycle by sequestering CO2 and producing oxygen, we are cutting it down to create more land for agriculture, which generates more pollution.\n\n• The Amazon forest is home to millions of species, and its death would inevitably cause all of these animals and plants to go extinct, leading to a loss of biodiversity.\n\n• Projections by the Brazil National Institute of Research stated that the size of the Amazon rainforest could be halved by 2050 (7).\n\n• At this current rate, the Amazon Rainforest really will be unrecoverable, as a certain 'tipping point' is reached after which deserts start to claim the forest. Climate change will be exacerbated, causing many more deaths in oceans and other forests as a result of increasing temperatures.\n\n• Source No.(s): 7, 31\n",
+    "shapes": [
+      {
+        "type": "rect",
+        "geometry": {
+          "x": 0.6612903225806451,
+          "y": 0.767491926803014,
+          "width": 0.01762246117084827,
+          "height": 0.08503767491926803
+        },
+        "style": {}
+      }
+    ],
+    "context": "index.html",
+    "editable": false
+  },
+  {
+    "src": "timeline.svg",
+    "text": "• Social unrest and food prices have been historically linked with each other.\n\n• Other events described here (drought, loss of arable land) could possibly lead to significant price increases, especially in many of the cereals that the world relies on for food. \n\n• Past history have shown that there is an FPI (Food Price Index) threshold after which the chance of significant social unrest can happen. For example, the 2007-08 and 2010-2011 food price crises have led to riots in Syria, Yemen, Egypt among others. \n\n• Unequal access to food has always been a problem, but for the poorest people in the world, it will become bigger as prices increase.\n\n• In the future, low-income countries will bear a significant burden as their people cannot afford necessary food to avoid malnutrition and stunted human development. Without development, these countries will remain low-income forever.\n\n• Source No.(s): 20\n",
+    "shapes": [
+      {
+        "type": "rect",
+        "geometry": {
+          "x": 0.7168458781362007,
+          "y": 0.5672766415500539,
+          "width": 0.01881720430107527,
+          "height": 0.08396124865446716
+        },
+        "style": {}
+      }
+    ],
+    "context": "index.html",
+    "editable": false
+  },
+  {
+    "src": "timeline.svg",
+    "text": "• Developed countries are expected to have lowering birthrates, but not enough to counteract the explosive growth from developing countries.\n\n• Growth is predicted to be highest in the Sub-Saharan region, where the average birth count per mother is already 5.2.\n\n• This means that by 2050, there will be 2.3 billion more mouths to feed. Food security will become an even larger issue in the coming years.\n\n• Source No.(s): 3\n",
+    "shapes": [
+      {
+        "type": "rect",
+        "geometry": {
+          "x": 0.7816606929510155,
+          "y": 0.7578040904198062,
+          "width": 0.044504181600955796,
+          "height": 0.09149623250807319
+        },
+        "style": {}
+      }
+    ],
+    "context": "index.html",
+    "editable": false
+  },
+  {
+    "src": "timeline.svg",
+    "text": "• There has been a general shift to energy dense foods such as fats and sugar recently, led by the \"fast food revolution,\" in which people eat more of the calorie-dense foods found in McDonalds and KFCs. Additionally, an increase in processed food consumption has led to increases in fat intake. \n\n• Without proper understanding of nutritional needs, even those in developed countries where food is plenty can suffer from deficiencies in Vitamins and dietary fibre.\n\n• A nutritional survey conducted in the USA reveals that the average consumption of dark greens and whole grains are each at less than 10 percent of recommended levels. Several chronic diseases such as diabetes and heart diseases are linked with unhealthy fat consumption.\n\n• Developing countries are also transitioning towards cheap vegetable oils for calorie intake, creating a problem where a population is composed simultaneously of both obese and hungry people. \nIn the future, if no action is taken, the world's nutritional intake could follow a downwards trend and make malnutrition widespread even when food is available.\n\n• Source No.(s): 16\n",
+    "shapes": [
+      {
+        "type": "rect",
+        "geometry": {
+          "x": 0.8372162485065711,
+          "y": 0.5748116254036598,
+          "width": 0.021505376344086023,
+          "height": 0.07427341227125941
+        },
+        "style": {}
+      }
+    ],
+    "context": "index.html",
+    "editable": false
+  },
+  {
+    "src": "timeline.svg",
+    "text": "• One hamburger uses 660 gallons of water (32)\n\t\n• One pound of beef uses 2500 gallons of water (32)\n\t\n• Vote with your wallet. By simply abstaining from meat products, you're already conserving hundreds of gallons of water.\n\t\n• Since agribusiness is also linked to deforestation and aquifer depletion, you'll also be helping to ensure nature's survival, which is crucial if we are to have food in the future.\n\n• Source No.(s): 32",
+    "shapes": [
+      {
+        "type": "rect",
+        "geometry": {
+          "x": 0.5575307045895281,
+          "y": 0.4405594405594406,
+          "width": 0.004201680672268907,
+          "height": 0.023310023310023312
+        },
+        "style": {}
+      }
+    ],
+    "context": "index.html",
+    "editable": false
+  },
+  {
+    "src": "timeline.svg",
+    "text": "• Shockingly, in the US, 10% of all food is wasted at the consumption stage (14). \n\t\n• High-income societies tend to be guilty of waste, as food is cheap, plentiful, and completely disconnected from their lives (14).\n\t\n• Or is it? Our food comes from farmers, who very often are starving themselves. Food that we throw away goes into landfills, which are filling up at amazing rates. \n\t\n• The world isn't running out of food anytime soon, but your actions can help prevent waste leading to more food being available for other people.\n\t\n• You can help prevent this by planning out your food purchases, saving leftovers, controlling portion sizes to avoid waste. Remember these three words: Think, Eat, Save.\n\n• Source No.(s): 14\n",
+    "shapes": [
+      {
+        "type": "rect",
+        "geometry": {
+          "x": 0.521978021978022,
+          "y": 0.4603729603729604,
+          "width": 0.004201680672268907,
+          "height": 0.022144522144522144
+        },
+        "style": {}
+      }
+    ],
+    "context": "index.html",
+    "editable": false
+  },
+  {
+    "src": "timeline.svg",
+    "text": "• Although food has become more plentiful, we're eating the worst of it. Vegetable oils and sugars, mainly present in fast food and processed foods, have begun to take over our diet.\n\t\n• On the other hand, consumption of fresh greens and whole grains is lowering. Even people who can afford sufficient quantities of food can face malnutrition if they don't eat properly.\n\t\n• MyPlate (choosemyplate.gov) can help you make good nutritional choices. Healthy people live longer, and can contribute more to a productive society.\n\t\n• Source No.(s): 16",
+    "shapes": [
+      {
+        "type": "rect",
+        "geometry": {
+          "x": 0.5126050420168067,
+          "y": 0.4825174825174825,
+          "width": 0.003878474466709761,
+          "height": 0.019813519813519812
+        },
+        "style": {}
+      }
+    ],
+    "context": "index.html",
+    "editable": false
+  },
+  {
+    "src": "timeline.svg",
+    "text": "• Consumption habits of customers have led to overfishing, causing endangered species such as Atlantic Cod, Bluefin Tuna, Sturgeon, and Atlantic Salmon to become nearly extinct.\n\n• Addititionally, many fishers use indiscriminate methods for their hauls, causing all types of fish to be caught regardless of type. This wastes a large number each year, with some estimating that five untargeted fish are caught for every one targeted. \n\n• The FAO estimates that 3/4 of fisheries are either nearly fully exploited or fully exploited. This shows how we are reaching the limit of earth's ability to produce fish (32).\n\n• Assuming the current trend continues, the world's supply of fish will be severely strained in the future, and cause a major loss of marine life. The most affected regions would become essentially devoid of fish as there is no opportunity for them to reproduce.\n\n• Source No.(s): 21, 32\n",
+    "shapes": [
+      {
+        "type": "rect",
+        "geometry": {
+          "x": 0.4244324970131422,
+          "y": 0.5651237890204521,
+          "width": 0.027180406212664276,
+          "height": 0.07965554359526372
+        },
+        "style": {}
+      }
+    ],
+    "context": "index.html",
+    "editable": false
+  },
+  {
+    "src": "timeline.svg",
+    "text": "• While doing business in agriculture, you will inevitably use large quantities of resources. This is unavoidable, and it's naïve to think otherwise.\n\n• However, by using best sustainability practices, you will ensure that you're getting the most return for capital, and help ensure the survival of your business too. No water, no crops. No crops, no money.\n\t\n• Several studies have shown that crop rotation is one of the most effective things you can do. By changing the crop you grow each season, pests, which often target specific crops, will come in fewer numbers. You'll also be replenishing nutrients in the soil without having to use a large number of chemical fertilizers.\n\t\n• Other methods also enrich the soil and allow crops to grow better. They can be found in the References section on the bottom right corner.\n\n• Source No.(s): 23",
     "shapes": [
       {
         "type": "rect",
@@ -555,11 +653,12 @@ var implementnew = [
         "style": {}
       }
     ],
-    "context": "index.html"
+    "context": "index.html",
+    "editable": false
   },
   {
     "src": "timeline.svg",
-    "text": "• As people who make food, you know suppliers better than anyone. This means the many choices you make can affect what consumers eat as a whole.\n\n• The first step to being sustainable is sourcing locally. By sourcing from nearby sources, you both save on transportation costs, and lower pollution in the atmosphere.\n\n• Your suppliers want to continue a good business relationship, and you can influence them by choosing the best ones that engage in the most sustainable practices.\n\n• By processing food, you control what suppliers sell and what consumers eat. This is a unique advantage, allowing you to create a global impact.\n\n\t\n",
+    "text": "• As people who make food, you know suppliers better than anyone. This means the many choices you make can affect what consumers eat as a whole.\n\n• The first step to being sustainable is sourcing locally. By sourcing from nearby sources, you both save on transportation costs, and lower pollution in the atmosphere.\n\n• Your suppliers want to continue a good business relationship, and you can influence them by choosing the best ones that engage in the most sustainable practices.\n\n• By processing food, you control what suppliers sell and what consumers eat. This is a unique advantage, allowing you to create a global impact.\n\n• Source No.(s): 16",
     "shapes": [
       {
         "type": "rect",
@@ -572,11 +671,12 @@ var implementnew = [
         "style": {}
       }
     ],
-    "context": "index.html"
+    "context": "index.html",
+    "editable": false
   },
   {
     "src": "timeline.svg",
-    "text": "• Selling food retail is tough. You've got to make sure you have enough of what consumers want, yet not overstock and waste food. In spite of this, many stores still think the \"pile em' high, watch 'em fly\" philosophy is the ultimate way to sell stuff.\n\t\n• It's not. Proper planning and analysis of trends is the best way to sell things, not stocking everything under the sun.\n\n• Stop &amp; Shop, a popular American supermarket chain, saved $100 million dollars by conducting proper analysis on what customers actually wanted. It wasted less food, offered fresher products, and raised customer satisfaction. \n\n• The choices you make can impact food waste significantly. An industry consultant describes, \"one in seven truckloads of perishables delivered to supermarkets is thrown away.\" That's one more than what it should be. Remember, there are many people who would love to buy from bargain bins full of nearly-expired food.\n\n• Stock smart, waste less, make money. A win-win for you and your customers. \n",
+    "text": "• Selling food retail is tough. You've got to make sure you have enough of what consumers want, yet not overstock and waste food. In spite of this, many stores still think the \"pile em' high, watch 'em fly\" philosophy is the ultimate way to sell stuff.\n\t\n• It's not. Proper planning and analysis of trends is the best way to sell things, not stocking everything under the sun.\n\n• Stop &amp; Shop, a popular American supermarket chain, saved $100 million dollars by conducting proper analysis on what customers actually wanted. It wasted less food, offered fresher products, and raised customer satisfaction. \n\n• The choices you make can impact food waste significantly. An industry consultant describes, \"one in seven truckloads of perishables delivered to supermarkets is thrown away.\" That's one more than what it should be. Remember, there are many people who would love to buy from bargain bins full of nearly-expired food.\n\n• Stock smart, waste less, make money. A win-win for you and your customers. \n\n• Source No.(s): 16",
     "shapes": [
       {
         "type": "rect",
@@ -589,11 +689,12 @@ var implementnew = [
         "style": {}
       }
     ],
-    "context": "index.html"
+    "context": "index.html",
+    "editable": false
   },
   {
     "src": "timeline.svg",
-    "text": "• Governments, as policy legislators, command an immense level of power in these issues.\n\t\n• Food is key to a stable society as shown, making it paramount that you support initiatives in sustainable agriculture.\n\t\n• In fact, many programs of these kind already exist at the international level. For example, the UNEP 10-Year Framework of Programmes on Sustainable Consumption and Production Patterns (10YFP) exists, and many states are already involved. \n\t\n• Further involvement in these programs will further world development, allowing food supply to last longer, and healthier people too.\n\t\n• Additionally, look to local talent for ideas. Educational institutions are often where the best ideas come from, and promoting these concepts within Primary through Tertiary education will breed creative ideas to help solve sustainable farming.\n",
+    "text": "• Governments, as policy legislators, command an immense level of power in these issues.\n\t\n• Food is key to a stable society as shown, making it paramount that you support initiatives in sustainable agriculture.\n\t\n• In fact, many programs of these kind already exist at the international level. For example, the UNEP 10-Year Framework of Programmes on Sustainable Consumption and Production Patterns (10YFP) exists, and many states are already involved (26). \n\t\n• Further involvement in these programs will further world development, allowing food supply to last longer, and healthier people too.\n\t\n• Additionally, look to local talent for ideas. Educational institutions are often where the best ideas come from, and promoting these concepts within Primary through Tertiary education will breed creative ideas to help solve sustainable farming.\n\n• Source No.(s): 26",
     "shapes": [
       {
         "type": "rect",
@@ -606,11 +707,12 @@ var implementnew = [
         "style": {}
       }
     ],
-    "context": "index.html"
+    "context": "index.html",
+    "editable": false
   },
   {
     "src": "timeline.svg",
-    "text": "• It's a concept that works. Offer motivation, and people are impelled to act\n\t\n• Various organizations have already implemented this to some degree. For example, the USDA has the Conservation Reserve Program, which pays rent to farmers who plant species that improve environmental quality.\n\t\n• Other incentives could come in a variety of ways. Carbon Tax is one possible solution, in which entities pay for the pollution they emit. Others include tax rebates for those who engage in some level of sustainability practices.\n\t\n• By offering incentives, individuals and companies will receive the initial boost needed to change their inertial behavior and hopefully make it a habit. \n",
+    "text": "• It's a concept that works. Offer motivation, and people are impelled to act\n\t\n• Various organizations have already implemented this to some degree. For example, the USDA has the Conservation Reserve Program, which pays rent to farmers who plant species that improve environmental quality (8).\n\t\n• One other possible method is a tax relief for those who engage in sustainable practices as the UK Government, which provides tax incentives to those which use energy-efficient appliances (33).\n\t\n• By offering incentives, individuals and companies will receive the initial boost needed to change their inertial behavior and hopefully make it a habit. \n\n• Source No.(s): 8, 33",
     "shapes": [
       {
         "type": "rect",
@@ -623,11 +725,12 @@ var implementnew = [
         "style": {}
       }
     ],
-    "context": "index.html"
+    "context": "index.html",
+    "editable": false
   },
   {
     "src": "timeline.svg",
-    "text": "• Externalized costs (n.): a term used to describe a cost of production paid by someone else.\n\n• Sounds nice, doesn't it. Someone else pay, not me!\n\t\n• Turns out, \"someone\" is misleading. It's everyone that pays. Your citizens breathe polluted air. They eat unhealthy food laden with pesticides. Your most opportunity-deprived people go hungry while companies use nature like it's free.\n\t\n• This is why, as a government, you need to increase the barriers to nature. Tying in with the concept of incentives, the complement is punishments.\n\t\n• Carbon Tax is one way this could happen, where companies would have to pay for their own emissions. Another possible method is an environmental code, which companies must follow or be fined.\n\t\n• As a government, you have the ability to take charge of your own country. This would bring us closer to the sustainable farming and healthy eating which should be common in the 21st century today.\n",
+    "text": "• Externalized costs (n.): a term used to describe a cost of production paid by someone else.\n\n• Sounds nice, doesn't it. Someone else pay, not me!\n\t\n• Turns out, \"someone\" is misleading. It's everyone that pays. Your citizens breathe polluted air. They eat unhealthy food laden with pesticides. Your most opportunity-deprived people go hungry while companies use nature like it's free (34).\n\t\n• This is why, as a government, you need to increase the barriers to nature. Tying in with the concept of incentives, the complement is punishments.\n\t\n• Carbon Tax is one possible solution, in which entities pay for the pollution they emit. Others include tax rebates for those who engage in some level of sustainability practices. However, a general solution should be a comprehensive environmental law that ensures that companies do not use nature recklessly.\n\t\n• As a government, you have the ability to take charge of your own country. This would bring us closer to the sustainable farming and healthy eating which should be common in the 21st century today.\n\n• Source No.(s): 34\n\n",
     "shapes": [
       {
         "type": "rect",
@@ -640,11 +743,11 @@ var implementnew = [
         "style": {}
       }
     ],
-    "context": "index.html"
+    "context": "index.html",
+    "editable": false
   }
 ];  
   function loadPopupstream() {
-  //anno.hideSelectionWidget();
   for (i=0; i<Object.keys(implementnew).length; i++)
   {
     anno.addAnnotation(implementnew[i]);
@@ -659,6 +762,9 @@ var implementnew = [
   }
   
  function initializePage() {
+ window.scrollTop=0;
+ anno.hideSelectionWidget();
+ jQuery("#mainImage").animate({opacity:1},2000,"easeInExpo",function(){ jQuery('body').css("background-color","#BE90D4");  jQuery("#referencesButton").animate({opacity:1},500,"swing"); loadPopupstream();});
  anno.addHandler('onPopupShown',function() {
     anno.hideAnnotations();
     jQuery('body').animate({scrollTop: document.body.scrollHeight}, 300, anno.showAnnotations());
@@ -668,23 +774,209 @@ var implementnew = [
     jQuery('body').animate({scrollTop: "0px"}, 300, anno.showAnnotations());
     });
  
- loadPopupstream();
+;
  }
 
- jQuery(function() {
-      jQuery("html, body").mousewheel(function(event, delta) {
-        this.scrollLeft -= (delta*30);
-        event.preventDefault();
-      });
-      jQuery("html, body").addEventListener("mousewheel", function(event) { event.preventDefault();});
-    });
   
+ 
 </script>
 
 </head>
-<body bgcolor=white onload="initializePage();">
+<body bgcolor=white>
 <div>
 <img src="timeline.svg" class="annotatable" id='mainImage'/>
+</div>
+<div class="floatingMenu" id="referencesButton">
+References/Attributions
+</div>
+
+<div id="referencesDialog" title="Further Reading/References/Attributions">
+Made by: Ja (Thanakul) Wattanawong (<a href="mailto:18jaw@nist.ac.th">18jaw@nist.ac.th</a>)
+<p><h2>Further Reading</h2></p>
+
+<h4><p><a href="http://sustainabletable.org/">Sustainable Table</a></p></h4>
+<p>A website that provides comprehensive information on being sustainable.
+<p/>
+<h4><p><a href="http://www.treehugger.com/">Tree Hugger</a></p></h4>
+<p>Stay up-to-date with the latest news about green living.
+<p/>
+<h4><p><a href="http://dotearth.blogs.nytimes.com/">Dot Earth @ The New York Times</a></p></h4>
+<p>The Dot Earth Blog, run by Andrew Revkin, explores sustainability and global issues.
+<h4><p><a href="http://www.fao.org/hunger/en/">FAO Hunger Map</a></p></h4>
+<p>View the current state of hunger around the world, all in a great interactive map.
+<p/>
+<p><h2>References </h2></p>
+<ol>
+			<li style="margin-left: 9pt;">
+				ABC News. &quot;Australian Obesity Rates Climbing Faster than Anywhere Else in the World, Study Shows.&quot;&nbsp;<em>ABC News</em>. N.p., 29 May 2014. Web. 4 Feb. 2016. &lt;<a href="http://www.abc.net.au/news/2014-05-29/australian-obesity-rates-climbing-fastest-in-the-world/5485724">http://www.abc.net.au/news/2014-05-29/australian-obesity-rates-climbing-fastest-in-the-world/5485724</a>&gt;.</li>
+			<li style="margin-left: 9pt;">
+				Al Jazeera, and Reuters. &quot;Obesity Rates Reach Historic Highs in More US States.&quot;&nbsp;<em>Obesity Rates Reach Historic Highs in More US States</em>. N.p., 04 Sept. 2014. Web. 04 Feb. 2016. &lt;<a href="http://america.aljazeera.com/articles/2014/9/4/obesity-rate-us.html">http://america.aljazeera.com/articles/2014/9/4/obesity-rate-us.html</a>&gt;.</li>
+			<li style="margin-left: 9pt;">
+				American Statistical Association. &quot;World Population Likely to Surpass 11 Billion in 2100.&quot;&nbsp;<em>ScienceDaily</em>. ScienceDaily, 10 Aug. 2015. Web. 04 Feb. 2016. &lt;<a href="http://www.sciencedaily.com/releases/2015/08/150810110634.htm">http://www.sciencedaily.com/releases/2015/08/150810110634.htm</a>&gt;.</li>
+			<li style="margin-left: 9pt;">
+				BBC News. &quot;World Bank President: &#39;One Shock Away from Crisis&#39; - BBC News.&quot;&nbsp;<em>BBC News</em>. BBC, 17 Apr. 2011. Web. 04 Feb. 2016. &lt;<a href="http://www.bbc.com/news/business-13108166">http://www.bbc.com/news/business-13108166</a>&gt;.</li>
+			<li style="margin-left: 9pt;">
+				Blake, Evan. &quot;California Drought: Agribusiness, Fracking Untouched by Water Rationing.&quot;&nbsp;<em>The Ecologist</em>. N.p., 5 Apr. 2015. Web. 4 Feb. 2016. &lt;<a href="http://www.theecologist.org/News/news_analysis/2819125/california_drought_agribusiness_fracking_untouched_by_water_rationing.html">http://www.theecologist.org/News/news_analysis/2819125/california_drought_agribusiness_fracking_untouched_by_water_rationing.html</a>&gt;.</li>
+			<li style="margin-left: 9pt;">
+				Brown, Lester. &quot;Aquifer Depletion.&quot;&nbsp;<em>The Encyclopedia of Earth</em>. N.p., 21 Nov. 2013. Web. 5 Feb. 2016. &lt;<a href="http://www.eoearth.org/view/article/150159/">http://www.eoearth.org/view/article/150159/</a>&gt;.</li>
+			<li style="margin-left: 9pt;">
+				Butler, Rhett A. &quot;What&rsquo;s the Current Deforestation Rate in the Amazon Rainforest?&quot;&nbsp;<em>iu Bay</em>. N.p., 27 Nov. 2015. Web. 5 Feb. 2016. &lt;<a href="http://news.mongabay.com/2015/05/whats-the-current-deforestation-rate-in-the-amazon-rainforest/">http://news.mongabay.com/2015/05/whats-the-current-deforestation-rate-in-the-amazon-rainforest/</a>&gt;.</li>
+			<li style="margin-left: 9pt;">
+				&quot;Conservation Reserve Program.&quot;&nbsp;<em>Conservation Reserve Program</em>. USDA Farm Service Agency, n.d. Web. 04 Feb. 2016. &lt;<a href="http://www.fsa.usda.gov/programs-and-services/conservation-programs/conservation-reserve-program/">http://www.fsa.usda.gov/programs-and-services/conservation-programs/conservation-reserve-program/</a>&gt;.</li>
+			<li style="margin-left: 9pt;">
+				Cronin, Melissa. &quot;Agricultural Implications of a Carbon Tax | VTDigger.&quot;&nbsp;<em>VTDigger</em>. N.p., 08 May 2015. Web. 04 Feb. 2016. &lt;<a href="http://vtdigger.org/2015/05/08/melissa-cronin-agricultural-implications-of-a-carbon-tax/">http://vtdigger.org/2015/05/08/melissa-cronin-agricultural-implications-of-a-carbon-tax/</a>&gt;.</li>
+			<li style="margin-left: 9pt;">
+				Everything Connects. &quot;Intensive Farming.&quot;&nbsp;<em>Everything Connects</em>. N.p., n.d. Web. 04 Feb. 2016. &lt;<a href="http://www.everythingconnects.org/intensive-farming.html">http://www.everythingconnects.org/intensive-farming.html</a>&gt;.</li>
+			<li style="margin-left: 9pt;">
+				FAO. &quot;The State of Food Insecurity in the World 2015.&quot;&nbsp;<em>Food and Agriculture Organization of the United Nations</em>. N.p., n.d. Web. 04 Feb. 2016. &lt;<a href="http://www.fao.org/hunger/en/">http://www.fao.org/hunger/en/</a>&gt;.</li>
+			<li style="margin-left: 9pt;">
+				Freedman, David H. &quot;The Truth about Genetically Modified Food.&quot;&nbsp;<em>Scientific American</em>. N.p., 01 Sept. 2013. Web. 04 Feb. 2016. &lt;<a href="http://www.scientificamerican.com/article/the-truth-about-genetically-modified-food/">http://www.scientificamerican.com/article/the-truth-about-genetically-modified-food/</a>&gt;.</li>
+			<li style="margin-left: 9pt;">
+				&quot;The Gulf of Mexico &#39;Dead Zone&#39;&quot;&nbsp;<em>SeaWeb - Ocean Briefing Book</em>. N.p., n.d. Web. 04 Feb. 2016. &lt;<a href="http://www.seaweb.org/resources/briefings/dead_zone.php">http://www.seaweb.org/resources/briefings/dead_zone.php</a>&gt;.</li>
+			<li style="margin-left: 9pt;">
+				Gunders, Dana. &quot;Wasted: How America Is Losing Up to 40 Percent of Its Food from Farm to Fork to Landfill.&quot;&nbsp;<em>Wasted: How America Is Losing Up to 40</em>&nbsp;(2012): n. pag. Natural Resources Defense Council, 21 Aug. 2012. Web. 4 Feb. 2016. &lt;<a href="https://www.nrdc.org/food/files/wasted-food-ip.pdf">https://www.nrdc.org/food/files/wasted-food-ip.pdf</a>&gt;.</li>
+			<li style="margin-left: 9pt;">
+				Hackman, Rose. &quot;Nestle Bottled Water Operations Spark Protests amid California Drought.&quot;&nbsp;<em>The Guardian</em>. N.p., 20 May 2015. Web. 4 Feb. 2016. &lt;<a href="http://www.theguardian.com/us-news/2015/may/20/nestle-water-bottling-california-drought">http://www.theguardian.com/us-news/2015/may/20/nestle-water-bottling-california-drought</a>&gt;.</li>
+			<li style="margin-left: 9pt;">
+				Keiley, Lynn. &quot;Overfed and Undernourished: Nutrient Deficiency in Our Modern Diet.&quot;&nbsp;<em>Mother Earth News</em>. N.p., June-July 2013. Web. 04 Feb. 2016. &lt;<a href="http://www.motherearthnews.com/natural-health/nutrition/nutrient-deficiency-zm0z13jjzmat.aspx">http://www.motherearthnews.com/natural-health/nutrition/nutrient-deficiency-zm0z13jjzmat.aspx</a>&gt;.</li>
+			<li style="margin-left: 9pt;">
+				Lagi, Marco, Karla Z. Bertrand, and Yaneer Bar-Yaam. &quot;The Cause Of Riots And The Price of Food.&quot;&nbsp;<em>MIT Technology Review</em>. N.p., 15 Aug. 2011. Web. 04 Feb. 2016. &lt;<a href="https://www.technologyreview.com/s/425019/the-cause-of-riots-and-the-price-of-food/">https://www.technologyreview.com/s/425019/the-cause-of-riots-and-the-price-of-food/</a>&gt;.</li>
+			<li style="margin-left: 9pt;">
+				&quot;Local &amp; Regional Food Systems.&quot;&nbsp;<em>Sustainable Table</em>. GRACE Communications FOundation, n.d. Web. 5 Feb. 2016.</li>
+			<li style="margin-left: 9pt;">
+				Pflanz, Mike. &quot;Africa&#39;s Population to Double to 2.4 Billion by 2050.&quot;&nbsp;<em>The Telegraph</em>. N.p., 12 Sept. 2013. Web. 5 Feb. 2016. &lt;<a href="http://www.telegraph.co.uk/news/worldnews/africaandindianocean/10305000/Africas-population-to-double-to-2.4-billion-by-2050.html">http://www.telegraph.co.uk/news/worldnews/africaandindianocean/10305000/Africas-population-to-double-to-2.4-billion-by-2050.html</a>&gt;.</li>
+			<li style="margin-left: 9pt;">
+				&quot;Scientists Predict That Food Riots Will Grip The Planet Within A Year.&quot;&nbsp;<em>Inhabitat Green Design Innovation Architecture Green Building</em>. N.p., n.d. Web. 04 Feb. 2016. &lt;<a href="http://inhabitat.com/scientists-predict-that-food-riots-will-grip-the-planet-within-a-year/food-riot-graph/">http://inhabitat.com/scientists-predict-that-food-riots-will-grip-the-planet-within-a-year/food-riot-graph/</a>&gt;.</li>
+			<li style="margin-left: 9pt;">
+				SHILCUTT, Katharine. &quot;10 Fish You&#39;re Eating That Are Endangered Species.&quot;&nbsp;<em>Houston Press</em>. N.p., 27 Sept. 2011. Web. 04 Feb. 2016. &lt;<a href="http://www.houstonpress.com/restaurants/10-fish-youre-eating-that-are-endangered-species-6439972">http://www.houstonpress.com/restaurants/10-fish-youre-eating-that-are-endangered-species-6439972</a>&gt;.</li>
+			<li style="margin-left: 9pt;">
+				The State Hornet. &quot;American River Remains Dry as Water Flows Limited by Drought.&quot;&nbsp;<em>The State Hornet</em>. N.p., 28 Jan. 2014. Web. 04 Feb. 2016. &lt;<a href="http://www.statehornet.com/news/american-river-remains-dry-as-water-flows-limited-by-drought/article_db105780-88b5-11e3-b613-001a4bcf6878.html">http://www.statehornet.com/news/american-river-remains-dry-as-water-flows-limited-by-drought/article_db105780-88b5-11e3-b613-001a4bcf6878.html</a>&gt;.</li>
+			<li style="margin-left: 9pt;">
+				&quot;Sustainable Agriculture Techniques.&quot;&nbsp;<em>Union of Concerned Scientists</em>. N.p., n.d. Web. 04 Feb. 2016.</li>
+			<li style="margin-left: 9pt;">
+				Trust for America&#39;s Health. &quot;The State of Obesity: Better Policies for a Healthier America.&quot;&nbsp;<em>Trust for America&#39;s Health</em>. N.p., Sept. 2014. Web. 04 Feb. 2016. &lt;<a href="http://healthyamericans.org/report/115/">http://healthyamericans.org/report/115/</a>&gt;.</li>
+			<li style="margin-left: 9pt;">
+				UN. &quot;Desertification.&quot;&nbsp;<em>UN News Center</em>. UN, n.d. Web. 04 Feb. 2016. &lt;<a href="http://www.un.org/en/events/desertificationday/background.shtml">http://www.un.org/en/events/desertificationday/background.shtml</a>&gt;.</li>
+			<li style="margin-left: 9pt;">
+				&quot;United Nations Environment Programme.&quot;&nbsp;<em>United Nations Environment Programme</em>. N.p., n.d. Web. 5 Feb. 2016. &lt;<a href="http://www.unep.org/10yfp/">http://www.unep.org/10yfp/</a>&gt;.</li>
+			<li style="margin-left: 9pt;">
+				Walton, Brett. &quot;Groundwater Depletion Stresses Majority of World&#39;s Largest Aquifers - Circle of Blue WaterNews.&quot;&nbsp;<em>Circle of Blue Water News</em>. N.p., 16 June 2015. Web. 04 Feb. 2016. &lt;<a href="http://www.circleofblue.org/waternews/2015/world/groundwater-depletion-stresses-majority-of-worlds-largest-aquifers/">http://www.circleofblue.org/waternews/2015/world/groundwater-depletion-stresses-majority-of-worlds-largest-aquifers/</a>&gt;.</li>
+			<li style="margin-left: 9pt;">
+				Wilson, Janet. &quot;Hot, Dry and Human-caused.&quot;&nbsp;<em>UC Irvine News</em>. N.p., 26 Aug. 2015. Web. 4 Feb. 2016. &lt;<a href="http://news.uci.edu/feature/hot-dry-and-human-caused/">http://news.uci.edu/feature/hot-dry-and-human-caused/</a>&gt;.</li>
+			<li style="margin-left: 9pt;">
+				World Bank. &quot;Food Price Watch - February 2011.&quot;&nbsp;<em>Food Price Watch - February 2011</em>. World Bank, Feb. 2011. Web. 04 Feb. 2016. &lt;<a href="http://www.worldbank.org/foodcrisis/food_price_watch_report_feb2011.html">http://www.worldbank.org/foodcrisis/food_price_watch_report_feb2011.html</a>&gt;.</li>
+			<li style="margin-left: 9pt;">
+				World Health Organization. &quot;Frequently Asked Questions on Genetically Modified Foods.&quot;&nbsp;<em>WHO</em>. N.p., n.d. Web. 04 Feb. 2016. &lt;<a href="http://www.who.int/foodsafety/areas_work/food-technology/faq-genetically-modified-food/en/">http://www.who.int/foodsafety/areas_work/food-technology/faq-genetically-modified-food/en/</a>&gt;.</li>
+			<li style="margin-left: 9pt;">
+				WWF. &quot;Why Is the Amazon Rainforest Important?&quot;&nbsp;<em>Why Is the Amazon Rainforest Important?</em>&nbsp;N.p., n.d. Web. 04 Feb. 2016. &lt;<a href="http://wwf.panda.org/what_we_do/where_we_work/amazon/about_the_amazon/why_amazon_important/">http://wwf.panda.org/what_we_do/where_we_work/amazon/about_the_amazon/why_amazon_important/</a>&gt;.</li>
+			<li style="margin-left: 9pt;">
+				Andersen, Kip, and Keegan Kuhn. Cowspiracy: The Sustainability Secret., 2014.</li>
+			<li style="margin-left: 9pt;">
+				&quot;Environmental Taxes, Reliefs and Schemes for Businesses.&quot;&nbsp;<em>GOV.UK</em>. N.p., 23 Nov. 2015. Web. 05 Feb. 2016. &lt;<a href="https://www.gov.uk/green-taxes-and-reliefs/capital-allowances-on-energyefficient-items">https://www.gov.uk/green-taxes-and-reliefs/capital-allowances-on-energyefficient-items</a>&gt;.</li>
+			<li style="margin-left: 9pt;">
+				Nestle, Marion. &quot;Food Is Cheaper Because Costs Are &ldquo;externalized&rdquo;.&quot;&nbsp;<em>Food Politics</em>. N.p., 03 Apr. 2011. Web. 05 Feb. 2016. &lt;<a href="http://www.foodpolitics.com/2011/04/externalized-costs">http://www.foodpolitics.com/2011/04/externalized-costs</a>/&gt;.</li>
+		</ol>
+<p/>
+
+<p><h2>Attributions</h2></p>
+
+<strong>Annotorious - Image Annotation for the Web</strong><p/>
+The MIT License (MIT)
+
+Copyright (c) 2014
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in
+all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+THE SOFTWARE.
+<p/>
+
+<strong>jQuery</strong><p/>
+Copyright jQuery Foundation and other contributors, https://jquery.org/
+
+This software consists of voluntary contributions made by many
+individuals. For exact contribution history, see the revision history
+available at https://github.com/jquery/jquery
+
+The following license applies to all parts of this software except as
+documented below:
+
+====
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+<p/>
+
+<strong>jquery-mousewheel</strong><p/>
+Copyright jQuery Foundation and other contributors
+https://jquery.org/
+
+This software consists of voluntary contributions made by many
+individuals. For exact contribution history, see the revision history
+available at https://github.com/jquery/jquery-mousewheel
+
+The following license applies to all parts of this software except as
+documented below:
+
+====
+
+Permission is hereby granted, free of charge, to any person obtaining
+a copy of this software and associated documentation files (the
+"Software"), to deal in the Software without restriction, including
+without limitation the rights to use, copy, modify, merge, publish,
+distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so, subject to
+the following conditions:
+
+The above copyright notice and this permission notice shall be
+included in all copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND,
+EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF
+MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND
+NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
+LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
+WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+<p/>
+
+<strong>Freepik</strong><p/>
+<div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a></div>
+<p/>
+
+<strong>Globe Icon</strong><p/>
+Globe Icon licensed from Tokyoship under CC-BY-SA 3.0.
+
+
 </div>
 </body>
 </html>
