@@ -82,6 +82,7 @@ jQuery('document').ready(function(){
     jQuery("#referencesDialog").dialog({autoOpen: false},{width:jQuery(window).width()*0.75},{height:jQuery(window).height()*0.75});
     jQuery("#referencesButton").click(function(){jQuery("#referencesDialog").dialog("open")});
     });
+    
     jQuery(window).resize(function() { 
         jQuery("#referencesDialog").dialog("option", "position", { my: "center", at: "center", of: window });
         jQuery("#referencesDialog").dialog("option", "width", jQuery(window).width()*0.75);
@@ -90,14 +91,12 @@ jQuery('document').ready(function(){
     /*jQuery(function() {
    
     jQuery("body").mousewheel(function(event, delta) {
-    
+
       if(!jQuery("#referencesDialog").dialog("isOpen"))
       {
       this.scrollLeft -= (delta * 30);
       }
-   });*/
-
-});
+   });});*/
 var implementnew = [
   {
     "src": "timeline.svg",
