@@ -77,7 +77,7 @@ $.noConflict();
   }
 </script>
 <script>
-jQuery('document').ready(function(){
+jQuery(window).load(function(){
     initializePage();
     jQuery("#referencesDialog").dialog({autoOpen: false},{width:jQuery(window).width()*0.75},{height:jQuery(window).height()*0.75});
     jQuery("#referencesButton").click(function(){jQuery("#referencesDialog").dialog("open")});
