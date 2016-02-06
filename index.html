@@ -478,7 +478,7 @@ var implementnew = [
   },
   {
     "src": "timeline.svg",
-    "text": "• GMO Technology promises to increase crop yield significantly by equipping plants with the genetics to fight off adverse factors affecting yield such as inclement weather and pests.\n\n• With more development in this area, it could be possible for important staples to be completely resistant to pest and diseases without the use of chemicals, leading to more sustainable agriculture overall.\n\n•  Currently, there is an increase in the use of GMOs, but people still exercise caution, and there are still many legal barriers to overcome.\n\n• Source No.(s): 30\n",
+    "text": "• GMO Technology promises to increase crop yield significantly by equipping plants with the genetics to fight off adverse factors affecting yield such as inclement weather and pests.\n\n• With more development in this area, it could be possible for important staples to be completely resistant to pest and diseases without the use of chemicals, leading to more sustainable agriculture overall.\n\n•  Currently, there is an increase in the use of GMOs, but some are still extremely cautious of GMO techonlogy, and there are still many legal barriers to be overcome.\n\n• Source No.(s): 30\n",
     "shapes": [
       {
         "type": "rect",
@@ -760,23 +760,32 @@ var implementnew = [
   anno.reset();
   loadPopupstream();
   }
-  
+ var limited=false;
  function initializePage() {
  window.scrollTop=0;
  anno.hideSelectionWidget();
  jQuery("#mainImage").animate({opacity:1},2000,"easeInExpo",function(){ jQuery('body').css("background-color","#BE90D4");  jQuery("#referencesButton").animate({opacity:1},500,"swing"); loadPopupstream();});
  anno.addHandler('onPopupShown', function() {
+    if(!limited)
+    {
+     limited=true;
      anno.hideAnnotations();
      //jQuery('body').animate({scrollTop: document.body.scrollHeight}, 300, anno.showAnnotations());
      jQuery('.annotorious-popup-text').stop(true, false);
-     jQuery('body').animate({scrollTop: document.body.scrollHeight-jQuery('.annotorious-popup-text').offset().top}, 300, anno.showAnnotations());
+     jQuery('body').animate({scrollTop: document.body.scrollHeight-jQuery('.annotorious-popup-text').offset().top}, 300, anno.showAnnotations());     
+     setTimeout(function(){this.limited=false;},500);
+     }
  });
  anno.addHandler('beforePopupHide', function() {
+     if(!limited)
+    {
      anno.hideAnnotations();
      jQuery('.annotorious-popup-text').stop(true, false);
      jQuery('body').animate({
          scrollTop: "0px"
      }, 300, anno.showAnnotations());
+     setTimeout(function(){this.limited=false;},500);
+     }
  }); 
  }
 
