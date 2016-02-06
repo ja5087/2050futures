@@ -1,11 +1,12 @@
-﻿<html>
-<title>2050futures</title>
+﻿<!DOCTYPE html>
+<html>
 
 <head>
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto"/>
-    <link type="text/css" rel="stylesheet" href="http://annotorious.github.com/latest/annotorious.css"/>
-    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css"/>
-    <link type="text/css" rel="stylesheet" href="css/2050futures.css"/>
+    <title>2050futures</title>
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto" />
+    <link type="text/css" rel="stylesheet" href="http://annotorious.github.com/latest/annotorious.css" />
+    <link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/themes/smoothness/jquery-ui.css" />
+    <link type="text/css" rel="stylesheet" href="css/2050futures.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
     <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
     <script src="https://cdn.rawgit.com/jquery/jquery-mousewheel/master/jquery.mousewheel.min.js"></script>
@@ -17,133 +18,121 @@
     <script type='text/javascript' src='js/2050futures.js'></script>
 </head>
 
-<body bgcolor=white>
-    <div>
-        <img src="timeline.svg" class="annotatable" id='mainImage' />
+<body>
+    <div class="mainDiv">
+        <img src="timeline.svg" class="annotatable" id='mainImage' alt='Requires a supported browser (Latest Chrome, Firefox, Edge, Safari). May not work in other/older browsers' />
     </div>
     <div class="floatingMenu" id="referencesButton" style="right:10px; opacity:0;">
         References/Attributions
     </div>
-    <div class="floatingText" id="BrowserCompatText" style="right:5px; top: 5px; font-family: Roboto, san-serif; font-size: 10;z-index: 1;position:fixed; opacity:0">
-        Note: Works on latest Chrome, Firefox, Safari, and Edge. May not work on other/older browsers.
-    </div>
-
     <div id="referencesDialog" title="Further Reading/References/Attributions">
         Made by: Ja (Thanakul) Wattanawong (<a href="mailto:18jaw@nist.ac.th">18jaw@nist.ac.th</a>)
-        <p>
-            <h2>Further Reading</h2>
-        </p>
+        <h2>Further Reading</h2>
 
-        <h4><p><a href="http://sustainabletable.org/">Sustainable Table</a></p></h4>
-        <p>A website that provides comprehensive information on being sustainable.
-            <p/>
-            <h4><p><a href="http://www.treehugger.com/">Tree Hugger</a></p></h4>
-            <p>Stay up-to-date with the latest news about green living.
-                <p/>
-                <h4><p><a href="http://dotearth.blogs.nytimes.com/">Dot Earth @ The New York Times</a></p></h4>
-                <p>The Dot Earth Blog, run by Andrew Revkin, explores sustainability and global issues.
-                    <h4><p><a href="http://www.fao.org/hunger/en/">FAO Hunger Map</a></p></h4>
-                    <p>View the current state of hunger around the world, all in a great interactive map.
-                        <p/>
-                        <p>
-                            <h2>References </h2>
-                        </p>
-                        <ol>
-                            <li style="margin-left: 9pt;">
-                                ABC News. &quot;Australian Obesity Rates Climbing Faster than Anywhere Else in the World, Study Shows.&quot;&nbsp;<em>ABC News</em>. N.p., 29 May 2014. Web. 4 Feb. 2016. &lt;<a href="http://www.abc.net.au/news/2014-05-29/australian-obesity-rates-climbing-fastest-in-the-world/5485724">http://www.abc.net.au/news/2014-05-29/australian-obesity-rates-climbing-fastest-in-the-world/5485724</a>&gt;.</li>
-                            <li style="margin-left: 9pt;">
-                                Al Jazeera, and Reuters. &quot;Obesity Rates Reach Historic Highs in More US States.&quot;&nbsp;<em>Obesity Rates Reach Historic Highs in More US States</em>. N.p., 04 Sept. 2014. Web. 04 Feb. 2016. &lt;<a href="http://america.aljazeera.com/articles/2014/9/4/obesity-rate-us.html">http://america.aljazeera.com/articles/2014/9/4/obesity-rate-us.html</a>&gt;.</li>
-                            <li style="margin-left: 9pt;">
-                                American Statistical Association. &quot;World Population Likely to Surpass 11 Billion in 2100.&quot;&nbsp;<em>ScienceDaily</em>. ScienceDaily, 10 Aug. 2015. Web. 04 Feb. 2016. &lt;<a href="http://www.sciencedaily.com/releases/2015/08/150810110634.htm">http://www.sciencedaily.com/releases/2015/08/150810110634.htm</a>&gt;.</li>
-                            <li style="margin-left: 9pt;">
-                                BBC News. &quot;World Bank President: &#39;One Shock Away from Crisis&#39; - BBC News.&quot;&nbsp;<em>BBC News</em>. BBC, 17 Apr. 2011. Web. 04 Feb. 2016. &lt;<a href="http://www.bbc.com/news/business-13108166">http://www.bbc.com/news/business-13108166</a>&gt;.</li>
-                            <li style="margin-left: 9pt;">
-                                Blake, Evan. &quot;California Drought: Agribusiness, Fracking Untouched by Water Rationing.&quot;&nbsp;<em>The Ecologist</em>. N.p., 5 Apr. 2015. Web. 4 Feb. 2016. &lt;<a href="http://www.theecologist.org/News/news_analysis/2819125/california_drought_agribusiness_fracking_untouched_by_water_rationing.html">http://www.theecologist.org/News/news_analysis/2819125/california_drought_agribusiness_fracking_untouched_by_water_rationing.html</a>&gt;.</li>
-                            <li style="margin-left: 9pt;">
-                                Brown, Lester. &quot;Aquifer Depletion.&quot;&nbsp;<em>The Encyclopedia of Earth</em>. N.p., 21 Nov. 2013. Web. 5 Feb. 2016. &lt;<a href="http://www.eoearth.org/view/article/150159/">http://www.eoearth.org/view/article/150159/</a>&gt;.</li>
-                            <li style="margin-left: 9pt;">
-                                Butler, Rhett A. &quot;What&rsquo;s the Current Deforestation Rate in the Amazon Rainforest?&quot;&nbsp;<em>iu Bay</em>. N.p., 27 Nov. 2015. Web. 5 Feb. 2016. &lt;<a href="http://news.mongabay.com/2015/05/whats-the-current-deforestation-rate-in-the-amazon-rainforest/">http://news.mongabay.com/2015/05/whats-the-current-deforestation-rate-in-the-amazon-rainforest/</a>&gt;.</li>
-                            <li style="margin-left: 9pt;">
-                                &quot;Conservation Reserve Program.&quot;&nbsp;<em>Conservation Reserve Program</em>. USDA Farm Service Agency, n.d. Web. 04 Feb. 2016. &lt;<a href="http://www.fsa.usda.gov/programs-and-services/conservation-programs/conservation-reserve-program/">http://www.fsa.usda.gov/programs-and-services/conservation-programs/conservation-reserve-program/</a>&gt;.</li>
-                            <li style="margin-left: 9pt;">
-                                Cronin, Melissa. &quot;Agricultural Implications of a Carbon Tax | VTDigger.&quot;&nbsp;<em>VTDigger</em>. N.p., 08 May 2015. Web. 04 Feb. 2016. &lt;<a href="http://vtdigger.org/2015/05/08/melissa-cronin-agricultural-implications-of-a-carbon-tax/">http://vtdigger.org/2015/05/08/melissa-cronin-agricultural-implications-of-a-carbon-tax/</a>&gt;.</li>
-                            <li style="margin-left: 9pt;">
-                                Everything Connects. &quot;Intensive Farming.&quot;&nbsp;<em>Everything Connects</em>. N.p., n.d. Web. 04 Feb. 2016. &lt;<a href="http://www.everythingconnects.org/intensive-farming.html">http://www.everythingconnects.org/intensive-farming.html</a>&gt;.</li>
-                            <li style="margin-left: 9pt;">
-                                FAO. &quot;The State of Food Insecurity in the World 2015.&quot;&nbsp;<em>Food and Agriculture Organization of the United Nations</em>. N.p., n.d. Web. 04 Feb. 2016. &lt;<a href="http://www.fao.org/hunger/en/">http://www.fao.org/hunger/en/</a>&gt;.</li>
-                            <li style="margin-left: 9pt;">
-                                Freedman, David H. &quot;The Truth about Genetically Modified Food.&quot;&nbsp;<em>Scientific American</em>. N.p., 01 Sept. 2013. Web. 04 Feb. 2016. &lt;<a href="http://www.scientificamerican.com/article/the-truth-about-genetically-modified-food/">http://www.scientificamerican.com/article/the-truth-about-genetically-modified-food/</a>&gt;.</li>
-                            <li style="margin-left: 9pt;">
-                                &quot;The Gulf of Mexico &#39;Dead Zone&#39;&quot;&nbsp;<em>SeaWeb - Ocean Briefing Book</em>. N.p., n.d. Web. 04 Feb. 2016. &lt;<a href="http://www.seaweb.org/resources/briefings/dead_zone.php">http://www.seaweb.org/resources/briefings/dead_zone.php</a>&gt;.</li>
-                            <li style="margin-left: 9pt;">
-                                Gunders, Dana. &quot;Wasted: How America Is Losing Up to 40 Percent of Its Food from Farm to Fork to Landfill.&quot;&nbsp;<em>Wasted: How America Is Losing Up to 40</em>&nbsp;(2012): n. pag. Natural Resources Defense Council, 21 Aug. 2012. Web. 4 Feb. 2016. &lt;<a href="https://www.nrdc.org/food/files/wasted-food-ip.pdf">https://www.nrdc.org/food/files/wasted-food-ip.pdf</a>&gt;.</li>
-                            <li style="margin-left: 9pt;">
-                                Hackman, Rose. &quot;Nestle Bottled Water Operations Spark Protests amid California Drought.&quot;&nbsp;<em>The Guardian</em>. N.p., 20 May 2015. Web. 4 Feb. 2016. &lt;<a href="http://www.theguardian.com/us-news/2015/may/20/nestle-water-bottling-california-drought">http://www.theguardian.com/us-news/2015/may/20/nestle-water-bottling-california-drought</a>&gt;.</li>
-                            <li style="margin-left: 9pt;">
-                                Keiley, Lynn. &quot;Overfed and Undernourished: Nutrient Deficiency in Our Modern Diet.&quot;&nbsp;<em>Mother Earth News</em>. N.p., June-July 2013. Web. 04 Feb. 2016. &lt;<a href="http://www.motherearthnews.com/natural-health/nutrition/nutrient-deficiency-zm0z13jjzmat.aspx">http://www.motherearthnews.com/natural-health/nutrition/nutrient-deficiency-zm0z13jjzmat.aspx</a>&gt;.</li>
-                            <li style="margin-left: 9pt;">
-                                Lagi, Marco, Karla Z. Bertrand, and Yaneer Bar-Yaam. &quot;The Cause Of Riots And The Price of Food.&quot;&nbsp;<em>MIT Technology Review</em>. N.p., 15 Aug. 2011. Web. 04 Feb. 2016. &lt;<a href="https://www.technologyreview.com/s/425019/the-cause-of-riots-and-the-price-of-food/">https://www.technologyreview.com/s/425019/the-cause-of-riots-and-the-price-of-food/</a>&gt;.</li>
-                            <li style="margin-left: 9pt;">
-                                &quot;Local &amp; Regional Food Systems.&quot;&nbsp;<em>Sustainable Table</em>. GRACE Communications FOundation, n.d. Web. 5 Feb. 2016.</li>
-                            <li style="margin-left: 9pt;">
-                                Pflanz, Mike. &quot;Africa&#39;s Population to Double to 2.4 Billion by 2050.&quot;&nbsp;<em>The Telegraph</em>. N.p., 12 Sept. 2013. Web. 5 Feb. 2016. &lt;<a href="http://www.telegraph.co.uk/news/worldnews/africaandindianocean/10305000/Africas-population-to-double-to-2.4-billion-by-2050.html">http://www.telegraph.co.uk/news/worldnews/africaandindianocean/10305000/Africas-population-to-double-to-2.4-billion-by-2050.html</a>&gt;.</li>
-                            <li style="margin-left: 9pt;">
-                                &quot;Scientists Predict That Food Riots Will Grip The Planet Within A Year.&quot;&nbsp;<em>Inhabitat Green Design Innovation Architecture Green Building</em>. N.p., n.d. Web. 04 Feb. 2016. &lt;<a href="http://inhabitat.com/scientists-predict-that-food-riots-will-grip-the-planet-within-a-year/food-riot-graph/">http://inhabitat.com/scientists-predict-that-food-riots-will-grip-the-planet-within-a-year/food-riot-graph/</a>&gt;.</li>
-                            <li style="margin-left: 9pt;">
-                                SHILCUTT, Katharine. &quot;10 Fish You&#39;re Eating That Are Endangered Species.&quot;&nbsp;<em>Houston Press</em>. N.p., 27 Sept. 2011. Web. 04 Feb. 2016. &lt;<a href="http://www.houstonpress.com/restaurants/10-fish-youre-eating-that-are-endangered-species-6439972">http://www.houstonpress.com/restaurants/10-fish-youre-eating-that-are-endangered-species-6439972</a>&gt;.</li>
-                            <li style="margin-left: 9pt;">
-                                The State Hornet. &quot;American River Remains Dry as Water Flows Limited by Drought.&quot;&nbsp;<em>The State Hornet</em>. N.p., 28 Jan. 2014. Web. 04 Feb. 2016. &lt;<a href="http://www.statehornet.com/news/american-river-remains-dry-as-water-flows-limited-by-drought/article_db105780-88b5-11e3-b613-001a4bcf6878.html">http://www.statehornet.com/news/american-river-remains-dry-as-water-flows-limited-by-drought/article_db105780-88b5-11e3-b613-001a4bcf6878.html</a>&gt;.</li>
-                            <li style="margin-left: 9pt;">
-                                &quot;Sustainable Agriculture Techniques.&quot;&nbsp;<em>Union of Concerned Scientists</em>. N.p., n.d. Web. 04 Feb. 2016.</li>
-                            <li style="margin-left: 9pt;">
-                                Trust for America&#39;s Health. &quot;The State of Obesity: Better Policies for a Healthier America.&quot;&nbsp;<em>Trust for America&#39;s Health</em>. N.p., Sept. 2014. Web. 04 Feb. 2016. &lt;<a href="http://healthyamericans.org/report/115/">http://healthyamericans.org/report/115/</a>&gt;.</li>
-                            <li style="margin-left: 9pt;">
-                                UN. &quot;Desertification.&quot;&nbsp;<em>UN News Center</em>. UN, n.d. Web. 04 Feb. 2016. &lt;<a href="http://www.un.org/en/events/desertificationday/background.shtml">http://www.un.org/en/events/desertificationday/background.shtml</a>&gt;.</li>
-                            <li style="margin-left: 9pt;">
-                                &quot;United Nations Environment Programme.&quot;&nbsp;<em>United Nations Environment Programme</em>. N.p., n.d. Web. 5 Feb. 2016. &lt;<a href="http://www.unep.org/10yfp/">http://www.unep.org/10yfp/</a>&gt;.</li>
-                            <li style="margin-left: 9pt;">
-                                Walton, Brett. &quot;Groundwater Depletion Stresses Majority of World&#39;s Largest Aquifers - Circle of Blue WaterNews.&quot;&nbsp;<em>Circle of Blue Water News</em>. N.p., 16 June 2015. Web. 04 Feb. 2016. &lt;<a href="http://www.circleofblue.org/waternews/2015/world/groundwater-depletion-stresses-majority-of-worlds-largest-aquifers/">http://www.circleofblue.org/waternews/2015/world/groundwater-depletion-stresses-majority-of-worlds-largest-aquifers/</a>&gt;.</li>
-                            <li style="margin-left: 9pt;">
-                                Wilson, Janet. &quot;Hot, Dry and Human-caused.&quot;&nbsp;<em>UC Irvine News</em>. N.p., 26 Aug. 2015. Web. 4 Feb. 2016. &lt;<a href="http://news.uci.edu/feature/hot-dry-and-human-caused/">http://news.uci.edu/feature/hot-dry-and-human-caused/</a>&gt;.</li>
-                            <li style="margin-left: 9pt;">
-                                World Bank. &quot;Food Price Watch - February 2011.&quot;&nbsp;<em>Food Price Watch - February 2011</em>. World Bank, Feb. 2011. Web. 04 Feb. 2016. &lt;<a href="http://www.worldbank.org/foodcrisis/food_price_watch_report_feb2011.html">http://www.worldbank.org/foodcrisis/food_price_watch_report_feb2011.html</a>&gt;.</li>
-                            <li style="margin-left: 9pt;">
-                                World Health Organization. &quot;Frequently Asked Questions on Genetically Modified Foods.&quot;&nbsp;<em>WHO</em>. N.p., n.d. Web. 04 Feb. 2016. &lt;<a href="http://www.who.int/foodsafety/areas_work/food-technology/faq-genetically-modified-food/en/">http://www.who.int/foodsafety/areas_work/food-technology/faq-genetically-modified-food/en/</a>&gt;.</li>
-                            <li style="margin-left: 9pt;">
-                                WWF. &quot;Why Is the Amazon Rainforest Important?&quot;&nbsp;<em>Why Is the Amazon Rainforest Important?</em>&nbsp;N.p., n.d. Web. 04 Feb. 2016. &lt;<a href="http://wwf.panda.org/what_we_do/where_we_work/amazon/about_the_amazon/why_amazon_important/">http://wwf.panda.org/what_we_do/where_we_work/amazon/about_the_amazon/why_amazon_important/</a>&gt;.</li>
-                            <li style="margin-left: 9pt;">
-                                Andersen, Kip, and Keegan Kuhn. Cowspiracy: The Sustainability Secret., 2014.</li>
-                            <li style="margin-left: 9pt;">
-                                &quot;Environmental Taxes, Reliefs and Schemes for Businesses.&quot;&nbsp;<em>GOV.UK</em>. N.p., 23 Nov. 2015. Web. 05 Feb. 2016. &lt;<a href="https://www.gov.uk/green-taxes-and-reliefs/capital-allowances-on-energyefficient-items">https://www.gov.uk/green-taxes-and-reliefs/capital-allowances-on-energyefficient-items</a>&gt;.</li>
-                            <li style="margin-left: 9pt;">
-                                Nestle, Marion. &quot;Food Is Cheaper Because Costs Are &ldquo;externalized&rdquo;.&quot;&nbsp;<em>Food Politics</em>. N.p., 03 Apr. 2011. Web. 05 Feb. 2016. &lt;<a href="http://www.foodpolitics.com/2011/04/externalized-costs">http://www.foodpolitics.com/2011/04/externalized-costs</a>/&gt;.</li>
-                        </ol>
-                        <p/>
+        <h4><a href="http://sustainabletable.org/">Sustainable Table</a></h4>
+        <p>A website that provides comprehensive information on being sustainable.</p>
+        <h4><a href="http://www.treehugger.com/">Tree Hugger</a></h4>Stay up-to-date with the latest news about green living.
+        <h4><a href="http://dotearth.blogs.nytimes.com/">Dot Earth @ The New York Times</a></h4>
+        <p>The Dot Earth Blog, run by Andrew Revkin, explores sustainability and global issues.
+            <h4><a href="http://www.fao.org/hunger/en/">FAO Hunger Map</a></h4>
+            <p>View the current state of hunger around the world, all in a great interactive map.
+            </p>
+            <br>
+            <h2>References </h2>
 
-                        <p>
-                            <h2>Attributions</h2>
-                        </p>
+            <ol>
+                <li style="margin-left: 9pt;">
+                    ABC News. &quot;Australian Obesity Rates Climbing Faster than Anywhere Else in the World, Study Shows.&quot;&nbsp;<em>ABC News</em>. N.p., 29 May 2014. Web. 4 Feb. 2016. &lt;<a href="http://www.abc.net.au/news/2014-05-29/australian-obesity-rates-climbing-fastest-in-the-world/5485724">http://www.abc.net.au/news/2014-05-29/australian-obesity-rates-climbing-fastest-in-the-world/5485724</a>&gt;.</li>
+                <li style="margin-left: 9pt;">
+                    Al Jazeera, and Reuters. &quot;Obesity Rates Reach Historic Highs in More US States.&quot;&nbsp;<em>Obesity Rates Reach Historic Highs in More US States</em>. N.p., 04 Sept. 2014. Web. 04 Feb. 2016. &lt;<a href="http://america.aljazeera.com/articles/2014/9/4/obesity-rate-us.html">http://america.aljazeera.com/articles/2014/9/4/obesity-rate-us.html</a>&gt;.</li>
+                <li style="margin-left: 9pt;">
+                    American Statistical Association. &quot;World Population Likely to Surpass 11 Billion in 2100.&quot;&nbsp;<em>ScienceDaily</em>. ScienceDaily, 10 Aug. 2015. Web. 04 Feb. 2016. &lt;<a href="http://www.sciencedaily.com/releases/2015/08/150810110634.htm">http://www.sciencedaily.com/releases/2015/08/150810110634.htm</a>&gt;.</li>
+                <li style="margin-left: 9pt;">
+                    BBC News. &quot;World Bank President: &#39;One Shock Away from Crisis&#39; - BBC News.&quot;&nbsp;<em>BBC News</em>. BBC, 17 Apr. 2011. Web. 04 Feb. 2016. &lt;<a href="http://www.bbc.com/news/business-13108166">http://www.bbc.com/news/business-13108166</a>&gt;.</li>
+                <li style="margin-left: 9pt;">
+                    Blake, Evan. &quot;California Drought: Agribusiness, Fracking Untouched by Water Rationing.&quot;&nbsp;<em>The Ecologist</em>. N.p., 5 Apr. 2015. Web. 4 Feb. 2016. &lt;<a href="http://www.theecologist.org/News/news_analysis/2819125/california_drought_agribusiness_fracking_untouched_by_water_rationing.html">http://www.theecologist.org/News/news_analysis/2819125/california_drought_agribusiness_fracking_untouched_by_water_rationing.html</a>&gt;.</li>
+                <li style="margin-left: 9pt;">
+                    Brown, Lester. &quot;Aquifer Depletion.&quot;&nbsp;<em>The Encyclopedia of Earth</em>. N.p., 21 Nov. 2013. Web. 5 Feb. 2016. &lt;<a href="http://www.eoearth.org/view/article/150159/">http://www.eoearth.org/view/article/150159/</a>&gt;.</li>
+                <li style="margin-left: 9pt;">
+                    Butler, Rhett A. &quot;What&rsquo;s the Current Deforestation Rate in the Amazon Rainforest?&quot;&nbsp;<em>iu Bay</em>. N.p., 27 Nov. 2015. Web. 5 Feb. 2016. &lt;<a href="http://news.mongabay.com/2015/05/whats-the-current-deforestation-rate-in-the-amazon-rainforest/">http://news.mongabay.com/2015/05/whats-the-current-deforestation-rate-in-the-amazon-rainforest/</a>&gt;.</li>
+                <li style="margin-left: 9pt;">
+                    &quot;Conservation Reserve Program.&quot;&nbsp;<em>Conservation Reserve Program</em>. USDA Farm Service Agency, n.d. Web. 04 Feb. 2016. &lt;<a href="http://www.fsa.usda.gov/programs-and-services/conservation-programs/conservation-reserve-program/">http://www.fsa.usda.gov/programs-and-services/conservation-programs/conservation-reserve-program/</a>&gt;.</li>
+                <li style="margin-left: 9pt;">
+                    Cronin, Melissa. &quot;Agricultural Implications of a Carbon Tax | VTDigger.&quot;&nbsp;<em>VTDigger</em>. N.p., 08 May 2015. Web. 04 Feb. 2016. &lt;<a href="http://vtdigger.org/2015/05/08/melissa-cronin-agricultural-implications-of-a-carbon-tax/">http://vtdigger.org/2015/05/08/melissa-cronin-agricultural-implications-of-a-carbon-tax/</a>&gt;.</li>
+                <li style="margin-left: 9pt;">
+                    Everything Connects. &quot;Intensive Farming.&quot;&nbsp;<em>Everything Connects</em>. N.p., n.d. Web. 04 Feb. 2016. &lt;<a href="http://www.everythingconnects.org/intensive-farming.html">http://www.everythingconnects.org/intensive-farming.html</a>&gt;.</li>
+                <li style="margin-left: 9pt;">
+                    FAO. &quot;The State of Food Insecurity in the World 2015.&quot;&nbsp;<em>Food and Agriculture Organization of the United Nations</em>. N.p., n.d. Web. 04 Feb. 2016. &lt;<a href="http://www.fao.org/hunger/en/">http://www.fao.org/hunger/en/</a>&gt;.</li>
+                <li style="margin-left: 9pt;">
+                    Freedman, David H. &quot;The Truth about Genetically Modified Food.&quot;&nbsp;<em>Scientific American</em>. N.p., 01 Sept. 2013. Web. 04 Feb. 2016. &lt;<a href="http://www.scientificamerican.com/article/the-truth-about-genetically-modified-food/">http://www.scientificamerican.com/article/the-truth-about-genetically-modified-food/</a>&gt;.</li>
+                <li style="margin-left: 9pt;">
+                    &quot;The Gulf of Mexico &#39;Dead Zone&#39;&quot;&nbsp;<em>SeaWeb - Ocean Briefing Book</em>. N.p., n.d. Web. 04 Feb. 2016. &lt;<a href="http://www.seaweb.org/resources/briefings/dead_zone.php">http://www.seaweb.org/resources/briefings/dead_zone.php</a>&gt;.</li>
+                <li style="margin-left: 9pt;">
+                    Gunders, Dana. &quot;Wasted: How America Is Losing Up to 40 Percent of Its Food from Farm to Fork to Landfill.&quot;&nbsp;<em>Wasted: How America Is Losing Up to 40</em>&nbsp;(2012): n. pag. Natural Resources Defense Council, 21 Aug. 2012. Web. 4 Feb. 2016. &lt;<a href="https://www.nrdc.org/food/files/wasted-food-ip.pdf">https://www.nrdc.org/food/files/wasted-food-ip.pdf</a>&gt;.</li>
+                <li style="margin-left: 9pt;">
+                    Hackman, Rose. &quot;Nestle Bottled Water Operations Spark Protests amid California Drought.&quot;&nbsp;<em>The Guardian</em>. N.p., 20 May 2015. Web. 4 Feb. 2016. &lt;<a href="http://www.theguardian.com/us-news/2015/may/20/nestle-water-bottling-california-drought">http://www.theguardian.com/us-news/2015/may/20/nestle-water-bottling-california-drought</a>&gt;.</li>
+                <li style="margin-left: 9pt;">
+                    Keiley, Lynn. &quot;Overfed and Undernourished: Nutrient Deficiency in Our Modern Diet.&quot;&nbsp;<em>Mother Earth News</em>. N.p., June-July 2013. Web. 04 Feb. 2016. &lt;<a href="http://www.motherearthnews.com/natural-health/nutrition/nutrient-deficiency-zm0z13jjzmat.aspx">http://www.motherearthnews.com/natural-health/nutrition/nutrient-deficiency-zm0z13jjzmat.aspx</a>&gt;.</li>
+                <li style="margin-left: 9pt;">
+                    Lagi, Marco, Karla Z. Bertrand, and Yaneer Bar-Yaam. &quot;The Cause Of Riots And The Price of Food.&quot;&nbsp;<em>MIT Technology Review</em>. N.p., 15 Aug. 2011. Web. 04 Feb. 2016. &lt;<a href="https://www.technologyreview.com/s/425019/the-cause-of-riots-and-the-price-of-food/">https://www.technologyreview.com/s/425019/the-cause-of-riots-and-the-price-of-food/</a>&gt;.</li>
+                <li style="margin-left: 9pt;">
+                    &quot;Local &amp; Regional Food Systems.&quot;&nbsp;<em>Sustainable Table</em>. GRACE Communications FOundation, n.d. Web. 5 Feb. 2016.</li>
+                <li style="margin-left: 9pt;">
+                    Pflanz, Mike. &quot;Africa&#39;s Population to Double to 2.4 Billion by 2050.&quot;&nbsp;<em>The Telegraph</em>. N.p., 12 Sept. 2013. Web. 5 Feb. 2016. &lt;<a href="http://www.telegraph.co.uk/news/worldnews/africaandindianocean/10305000/Africas-population-to-double-to-2.4-billion-by-2050.html">http://www.telegraph.co.uk/news/worldnews/africaandindianocean/10305000/Africas-population-to-double-to-2.4-billion-by-2050.html</a>&gt;.</li>
+                <li style="margin-left: 9pt;">
+                    &quot;Scientists Predict That Food Riots Will Grip The Planet Within A Year.&quot;&nbsp;<em>Inhabitat Green Design Innovation Architecture Green Building</em>. N.p., n.d. Web. 04 Feb. 2016. &lt;<a href="http://inhabitat.com/scientists-predict-that-food-riots-will-grip-the-planet-within-a-year/food-riot-graph/">http://inhabitat.com/scientists-predict-that-food-riots-will-grip-the-planet-within-a-year/food-riot-graph/</a>&gt;.</li>
+                <li style="margin-left: 9pt;">
+                    SHILCUTT, Katharine. &quot;10 Fish You&#39;re Eating That Are Endangered Species.&quot;&nbsp;<em>Houston Press</em>. N.p., 27 Sept. 2011. Web. 04 Feb. 2016. &lt;<a href="http://www.houstonpress.com/restaurants/10-fish-youre-eating-that-are-endangered-species-6439972">http://www.houstonpress.com/restaurants/10-fish-youre-eating-that-are-endangered-species-6439972</a>&gt;.</li>
+                <li style="margin-left: 9pt;">
+                    The State Hornet. &quot;American River Remains Dry as Water Flows Limited by Drought.&quot;&nbsp;<em>The State Hornet</em>. N.p., 28 Jan. 2014. Web. 04 Feb. 2016. &lt;<a href="http://www.statehornet.com/news/american-river-remains-dry-as-water-flows-limited-by-drought/article_db105780-88b5-11e3-b613-001a4bcf6878.html">http://www.statehornet.com/news/american-river-remains-dry-as-water-flows-limited-by-drought/article_db105780-88b5-11e3-b613-001a4bcf6878.html</a>&gt;.</li>
+                <li style="margin-left: 9pt;">
+                    &quot;Sustainable Agriculture Techniques.&quot;&nbsp;<em>Union of Concerned Scientists</em>. N.p., n.d. Web. 04 Feb. 2016.</li>
+                <li style="margin-left: 9pt;">
+                    Trust for America&#39;s Health. &quot;The State of Obesity: Better Policies for a Healthier America.&quot;&nbsp;<em>Trust for America&#39;s Health</em>. N.p., Sept. 2014. Web. 04 Feb. 2016. &lt;<a href="http://healthyamericans.org/report/115/">http://healthyamericans.org/report/115/</a>&gt;.</li>
+                <li style="margin-left: 9pt;">
+                    UN. &quot;Desertification.&quot;&nbsp;<em>UN News Center</em>. UN, n.d. Web. 04 Feb. 2016. &lt;<a href="http://www.un.org/en/events/desertificationday/background.shtml">http://www.un.org/en/events/desertificationday/background.shtml</a>&gt;.</li>
+                <li style="margin-left: 9pt;">
+                    &quot;United Nations Environment Programme.&quot;&nbsp;<em>United Nations Environment Programme</em>. N.p., n.d. Web. 5 Feb. 2016. &lt;<a href="http://www.unep.org/10yfp/">http://www.unep.org/10yfp/</a>&gt;.</li>
+                <li style="margin-left: 9pt;">
+                    Walton, Brett. &quot;Groundwater Depletion Stresses Majority of World&#39;s Largest Aquifers - Circle of Blue WaterNews.&quot;&nbsp;<em>Circle of Blue Water News</em>. N.p., 16 June 2015. Web. 04 Feb. 2016. &lt;<a href="http://www.circleofblue.org/waternews/2015/world/groundwater-depletion-stresses-majority-of-worlds-largest-aquifers/">http://www.circleofblue.org/waternews/2015/world/groundwater-depletion-stresses-majority-of-worlds-largest-aquifers/</a>&gt;.</li>
+                <li style="margin-left: 9pt;">
+                    Wilson, Janet. &quot;Hot, Dry and Human-caused.&quot;&nbsp;<em>UC Irvine News</em>. N.p., 26 Aug. 2015. Web. 4 Feb. 2016. &lt;<a href="http://news.uci.edu/feature/hot-dry-and-human-caused/">http://news.uci.edu/feature/hot-dry-and-human-caused/</a>&gt;.</li>
+                <li style="margin-left: 9pt;">
+                    World Bank. &quot;Food Price Watch - February 2011.&quot;&nbsp;<em>Food Price Watch - February 2011</em>. World Bank, Feb. 2011. Web. 04 Feb. 2016. &lt;<a href="http://www.worldbank.org/foodcrisis/food_price_watch_report_feb2011.html">http://www.worldbank.org/foodcrisis/food_price_watch_report_feb2011.html</a>&gt;.</li>
+                <li style="margin-left: 9pt;">
+                    World Health Organization. &quot;Frequently Asked Questions on Genetically Modified Foods.&quot;&nbsp;<em>WHO</em>. N.p., n.d. Web. 04 Feb. 2016. &lt;<a href="http://www.who.int/foodsafety/areas_work/food-technology/faq-genetically-modified-food/en/">http://www.who.int/foodsafety/areas_work/food-technology/faq-genetically-modified-food/en/</a>&gt;.</li>
+                <li style="margin-left: 9pt;">
+                    WWF. &quot;Why Is the Amazon Rainforest Important?&quot;&nbsp;<em>Why Is the Amazon Rainforest Important?</em>&nbsp;N.p., n.d. Web. 04 Feb. 2016. &lt;<a href="http://wwf.panda.org/what_we_do/where_we_work/amazon/about_the_amazon/why_amazon_important/">http://wwf.panda.org/what_we_do/where_we_work/amazon/about_the_amazon/why_amazon_important/</a>&gt;.</li>
+                <li style="margin-left: 9pt;">
+                    Andersen, Kip, and Keegan Kuhn. Cowspiracy: The Sustainability Secret., 2014.</li>
+                <li style="margin-left: 9pt;">
+                    &quot;Environmental Taxes, Reliefs and Schemes for Businesses.&quot;&nbsp;<em>GOV.UK</em>. N.p., 23 Nov. 2015. Web. 05 Feb. 2016. &lt;<a href="https://www.gov.uk/green-taxes-and-reliefs/capital-allowances-on-energyefficient-items">https://www.gov.uk/green-taxes-and-reliefs/capital-allowances-on-energyefficient-items</a>&gt;.</li>
+                <li style="margin-left: 9pt;">
+                    Nestle, Marion. &quot;Food Is Cheaper Because Costs Are &ldquo;externalized&rdquo;.&quot;&nbsp;<em>Food Politics</em>. N.p., 03 Apr. 2011. Web. 05 Feb. 2016. &lt;<a href="http://www.foodpolitics.com/2011/04/externalized-costs">http://www.foodpolitics.com/2011/04/externalized-costs</a>/&gt;.</li>
+            </ol>
+            <br>
+            <h2>Attributions</h2>
 
-                        <strong>Annotorious - Image Annotation for the Web</strong>
-                        <p/> The MIT License (MIT) Copyright (c) 2014 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-                        <p/>
 
-                        <strong>jQuery</strong>
-                        <p/> Copyright jQuery Foundation and other contributors, https://jquery.org/ This software consists of voluntary contributions made by many individuals. For exact contribution history, see the revision history available at https://github.com/jquery/jquery The following license applies to all parts of this software except as documented below: ==== Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-                        <p/>
+            <strong>Annotorious - Image Annotation for the Web</strong>
+            <p> The MIT License (MIT) Copyright (c) 2014 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+            </p>
 
-                        <strong>jquery-mousewheel</strong>
-                        <p/> Copyright jQuery Foundation and other contributors https://jquery.org/ This software consists of voluntary contributions made by many individuals. For exact contribution history, see the revision history available at https://github.com/jquery/jquery-mousewheel The following license applies to all parts of this software except as documented below: ==== Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-                        <p/>
+            <strong>jQuery</strong>
+            <p> Copyright jQuery Foundation and other contributors, https://jquery.org/ This software consists of voluntary contributions made by many individuals. For exact contribution history, see the revision history available at https://github.com/jquery/jquery The following license applies to all parts of this software except as documented below: ==== Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+            </p>
 
-                        <strong>Freepik</strong>
-                        <p/>
-                        <div>Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a>
-                        </div>
-                        <p/>
+            <strong>jquery-mousewheel</strong>
+            <p> Copyright jQuery Foundation and other contributors https://jquery.org/ This software consists of voluntary contributions made by many individuals. For exact contribution history, see the revision history available at https://github.com/jquery/jquery-mousewheel The following license applies to all parts of this software except as documented below: ==== Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions: The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software. THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+            </p>
 
-                        <strong>Globe Icon</strong>
-                        <p/> Globe Icon licensed from Tokyoship under CC-BY-SA 3.0.
+            <strong>Freepik</strong>
+            <p>
+                Icons made by <a href="http://www.freepik.com" title="Freepik">Freepik</a> from <a href="http://www.flaticon.com" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0">CC BY 3.0</a>
+            </p>
+
+            <strong>Globe Icon</strong>
+            <p> Globe Icon licensed from Tokyoship under CC-BY-SA 3.0.</p>
 
 
     </div>

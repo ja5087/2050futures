@@ -1,3 +1,7 @@
+html {
+  height: 100%;
+  min-height: 100%; 
+}
 div img {
 object-fit: contain;
 vertical-align: middle;
@@ -5,7 +9,12 @@ height: 100%;
 opacity:0;
 }
 
-body {margin :0;height:100%; background-color: #ecf0f1;overflow-y: hidden;}
+body {
+    margin :0;
+    height:100%; 
+    background-color: #ecf0f1;
+    overflow-y: hidden;
+}
 
 .ui-widget-header {
     background: #ffffff;
