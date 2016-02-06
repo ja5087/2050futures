@@ -765,20 +765,21 @@ var implementnew = [
  window.scrollTop=0;
  anno.hideSelectionWidget();
  jQuery("#mainImage").animate({opacity:1},2000,"easeInExpo",function(){ jQuery('body').css("background-color","#BE90D4");  jQuery("#referencesButton").animate({opacity:1},500,"swing"); loadPopupstream();});
- anno.addHandler('onPopupShown',function() {
-    anno.hideAnnotations();
-    jQuery('body').animate({scrollTop: document.body.scrollHeight}, 300, anno.showAnnotations());
-    });
- anno.addHandler('beforePopupHide',function() {
-    anno.hideAnnotations();
-    jQuery('body').animate({scrollTop: "0px"}, 300, anno.showAnnotations());
-    });
- 
-;
+ anno.addHandler('onPopupShown', function() {
+     anno.hideAnnotations();
+     //jQuery('body').animate({scrollTop: document.body.scrollHeight}, 300, anno.showAnnotations());
+     jQuery('.annotorious-popup-text').stop(true, false);
+     jQuery('body').animate({scrollTop: document.body.scrollHeight-jQuery('.annotorious-popup-text').offset().top}, 300, anno.showAnnotations());
+ });
+ anno.addHandler('beforePopupHide', function() {
+     anno.hideAnnotations();
+     jQuery('.annotorious-popup-text').stop(true, false);
+     jQuery('body').animate({
+         scrollTop: "0px"
+     }, 300, anno.showAnnotations());
+ }); 
  }
 
-  
- 
 </script>
 
 </head>
