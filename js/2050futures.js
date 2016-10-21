@@ -208,7 +208,7 @@ var implementnew = [{
     "context": "http://ja5087.github.io/2050futures/"
 }, {
     "src": "timeline.svg",
-    "text": "• Along with a reduced water draw, humans will finally start to move off nonrenewable water sources by closing the loop and recycling water from sewage.\n\n• It will help achieve global water security meaning people do not have to die from unclean water sources.",
+    "text": "• Along with a reduced water draw, humans will finally move off nonrenewable water sources indefinitely by using energy to generate our own clean water.\n\n• It will help achieve global water security meaning people do not have to die from unclean water sources.",
     "shapes": [{
         "type": "rect",
         "geometry": {
@@ -566,12 +566,13 @@ function initializePage() {
     jQuery("#mainImage").animate({
         opacity: 1
     }, 2000, "easeInExpo", function() {
-        jQuery('body').css("background-color", "#59ABE3");
+        jQuery('body').css("background-color", "#BE90D4");
         loadPopupstream();
     });
     jQuery("#referencesButton").animate({
         opacity: 1
     }, 500, "swing");
+
     anno.addHandler('onPopupShown', function() {
         anno.hideAnnotations();
         //jQuery('body').animate({scrollTop: document.body.scrollHeight}, 300, anno.showAnnotations());
